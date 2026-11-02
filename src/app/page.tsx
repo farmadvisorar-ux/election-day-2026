@@ -1,69 +1,382 @@
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import { CountdownTimer } from '../components/CountdownTimer';
+import { DirectAnswerBox } from '../components/DirectAnswerBox';
+import { CanIVoteTool } from '../components/CanIVoteTool';
+import { AdPlacement } from '../components/AdPlacement';
+import { LeadCapture } from '../components/LeadCapture';
+import { JsonLd } from '../components/JsonLd';
+import { SITE_FAQS } from '../data/faq';
+import { ALL_STATES_LIST } from '../data/states';
+import {
+  Calendar,
+  CheckCircle,
+  HelpCircle,
+  Vote,
+  MapPin,
+  ArrowRight,
+  ShieldAlert,
+  Building2,
+  GraduationCap,
+  Sparkles,
+} from 'lucide-react';
 
-export default function Home() {
+export default function HomePage() {
+  const electionEventSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: 'Election Day 2026 (United States General Midterm Elections)',
+    startDate: '2026-11-03T07:00:00-05:00',
+    endDate: '2026-11-03T20:00:00-05:00',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
+    location: {
+      '@type': 'Place',
+      name: 'Polling Stations Across All 50 U.S. States and Territories',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'US',
+      },
+    },
+    description:
+      'The 2026 United States Midterm General Elections to elect all 435 voting members of the House of Representatives, 34 U.S. Senators, and 36 state Governors.',
+    organizer: {
+      '@type': 'GovernmentOrganization',
+      name: 'State Election Directors & County Election Boards',
+      url: 'https://www.vote.gov',
+    },
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: SITE_FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `${faq.shortAnswer} ${faq.detailedAnswer}`,
+      },
+    })),
+  };
+
+  const breadcrumbsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://electionguide2026.org',
+      },
+    ],
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <JsonLd data={electionEventSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={breadcrumbsSchema} />
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-blue-900 via-indigo-900 to-slate-900 text-white pt-10 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              Official Statutory Guide • 2026 Midterm General Elections
+            </span>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
+              Election Day <span className="text-amber-300">2026</span>
+            </h1>
+            <p className="mt-3 text-base sm:text-xl text-blue-100/90 max-w-3xl mx-auto font-medium">
+              Official date, state voter registration deadlines, early voting calendars, voter ID requirements, and holiday closure rules.
+            </p>
+          </div>
+
+          {/* Direct Answer Box for Instant AEO AI Indexing */}
+          <div className="max-w-4xl mx-auto">
+            <DirectAnswerBox
+              question="When is Election Day 2026?"
+              directAnswer="Election Day 2026 is on Tuesday, November 3, 2026."
+              supportingText="Under federal law (2 U.S.C. § 7), federal general elections are held on the Tuesday next after the first Monday in November. All 435 seats in the U.S. House of Representatives, 34 U.S. Senate seats, and 36 state Governors will be decided."
+              statuteOrSource="2 U.S. Code § 7 - Time of election"
+              sourceUrl="https://www.law.cornell.edu/uscode/text/2/7"
+            />
+          </div>
+
+          {/* Live Countdown Component */}
+          <div className="max-w-4xl mx-auto mt-6">
+            <CountdownTimer />
+          </div>
+        </div>
+      </section>
+
+      {/* Ad Unit 1: Top Leaderboard */}
+      <div className="max-w-5xl mx-auto px-4 mt-6">
+        <AdPlacement format="leaderboard" slotId="home-top-leaderboard" />
+      </div>
+
+      {/* Quick Facts Grid */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Election Day 2026 At A Glance
+          </h2>
+          <p className="text-sm text-slate-600 mt-1">
+            Core statutory facts regarding the upcoming November 3, 2026 federal general election.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-blue-600 uppercase mb-1">
+              <Calendar className="w-4 h-4" />
+              <span>Official Date</span>
+            </div>
+            <div className="text-lg font-black text-slate-900">Tuesday, Nov 3, 2026</div>
+            <p className="text-xs text-slate-500 mt-1">
+              Federal law specifies the Tuesday after the first Monday in November.
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 uppercase mb-1">
+              <Building2 className="w-4 h-4" />
+              <span>Federal Holiday Status</span>
+            </div>
+            <div className="text-lg font-black text-slate-900">Not a Federal Holiday</div>
+            <p className="text-xs text-slate-500 mt-1">
+              USPS mail runs, federal offices open, national banks open. Several states offer state holidays.
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-purple-600 uppercase mb-1">
+              <Vote className="w-4 h-4" />
+              <span>Seats on Ballot</span>
+            </div>
+            <div className="text-lg font-black text-slate-900">435 House + 34 Senate</div>
+            <p className="text-xs text-slate-500 mt-1">
+              Plus 36 state Governors and thousands of local municipal and judicial offices.
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-amber-600 uppercase mb-1">
+              <CheckCircle className="w-4 h-4" />
+              <span>Early Voting Period</span>
+            </div>
+            <div className="text-lg font-black text-slate-900">Sept – Nov 2026</div>
+            <p className="text-xs text-slate-500 mt-1">
+              47 states offer early in-person or universal mail-in ballot options before Election Day.
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-rose-600 uppercase mb-1">
+              <GraduationCap className="w-4 h-4" />
+              <span>School & Bank Closures</span>
+            </div>
+            <div className="text-lg font-black text-slate-900">Varies by District</div>
+            <p className="text-xs text-slate-500 mt-1">
+              Banks remain open. Schools frequently close if their facilities host voting precincts.
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 uppercase mb-1">
+              <ShieldAlert className="w-4 h-4" />
+              <span>Voter Registration</span>
+            </div>
+            <div className="text-lg font-black text-slate-900">Oct 5 – Nov 3, 2026</div>
+            <p className="text-xs text-slate-500 mt-1">
+              Deadlines vary significantly by state, ranging from 30 days prior to same-day registration.
+            </p>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Interactive Tool Section */}
+      <section id="voter-tool" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 scroll-mt-20">
+        <CanIVoteTool />
+      </section>
+
+      {/* Ad Unit 2: In-Article Placement */}
+      <div className="max-w-5xl mx-auto px-4 my-4">
+        <AdPlacement format="in-article" slotId="home-mid-article" />
+      </div>
+
+      {/* Educational & Semantic Long-Tail Article Section */}
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 prose prose-slate max-w-none">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          What Is on the Ballot in the 2026 Midterm Elections?
+        </h2>
+        <p className="text-slate-700 leading-relaxed">
+          The November 3, 2026 general election marks the halfway point of the 2024–2028 presidential administration. Because there is no presidential contest on the ballot, these elections are designated as <strong>midterm elections</strong>. Historically, midterms generate substantial voter interest and determine legislative control of the federal government.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6 not-prose">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200">
+            <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <Vote className="w-5 h-5 text-blue-600" />
+              <span>United States Congress</span>
+            </h3>
+            <ul className="mt-3 space-y-2 text-sm text-slate-600">
+              <li>
+                <strong>All 435 U.S. House of Representatives Seats:</strong> Every member of Congress faces re-election every two years. The outcome determines which political party controls the House majority, committee gavels, and legislative docket.
+              </li>
+              <li>
+                <strong>34 Class II U.S. Senate Seats:</strong> Senators serve staggered six-year terms. The 34 seats up in 2026 include fiercely contested battleground races in Georgia, North Carolina, Michigan, Maine, and Texas.
+              </li>
+            </ul>
+            <div className="mt-4">
+              <Link
+                href="/races/senate-2026"
+                className="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+              >
+                <span>Explore Full 2026 Senate Map & Key Seats</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-200">
+            <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <Building2 className="w-5 h-5 text-indigo-600" />
+              <span>36 State Governorships</span>
+            </h3>
+            <p className="mt-3 text-sm text-slate-600">
+              Voters across 36 states and 3 U.S. territories will choose their chief executive. Because many states enforce two-consecutive-term limits, the 2026 gubernatorial cycle will feature major open-seat races in Florida, Georgia, Ohio, and Michigan.
+            </p>
+            <div className="mt-4">
+              <Link
+                href="/races/governor-2026"
+                className="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+              >
+                <span>Explore 2026 Gubernatorial Battles</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mt-8">
+          Why Is Election Day Always on a Tuesday in November?
+        </h3>
+        <p className="text-slate-700 leading-relaxed">
+          In 1845, the United States Congress passed a federal statute standardizing the date of federal elections to <em>"the Tuesday next after the first Monday in the month of November."</em> This 19th-century decision resolved three practical challenges of an agrarian society:
+        </p>
+        <ul className="list-disc pl-5 space-y-2 text-slate-700">
+          <li>
+            <strong>Travel Time for Farmers:</strong> Most 19th-century citizens traveled by horse and buggy to county seats to vote. Sunday was reserved for church attendance, and Wednesday was market day. Tuesday provided a full day of travel on Monday without infringing on religious observances.
+          </li>
+          <li>
+            <strong>The Harvest Window:</strong> By early November, the autumn harvest was concluded, but winter weather had not yet made dirt roads impassable.
+          </li>
+          <li>
+            <strong>Avoiding the First Day of the Month:</strong> Congress specifically stipulated the Tuesday <em>after the first Monday</em> to avoid Election Day falling on November 1. November 1 was All Saints Day (a holy day of obligation for Roman Catholics) and the traditional date when merchants balanced their accounting books for the prior month.
+          </li>
+        </ul>
+      </article>
+
+      {/* State Directory Cards */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+              State-By-State 2026 Voting Portals
+            </h2>
+            <p className="text-sm text-slate-600">
+              Select your state to review statutory deadlines, photo ID laws, and official Secretary of State links.
+            </p>
+          </div>
+          <span className="text-xs font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+            50 States + D.C.
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          {ALL_STATES_LIST.map((state) => (
+            <Link
+              key={state.slug}
+              href={`/states/${state.slug}`}
+              className="group p-3.5 bg-white rounded-xl border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all text-left flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold text-slate-400 group-hover:text-blue-600">
+                    {state.postalCode}
+                  </span>
+                  {state.battleground && (
+                    <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.2 rounded">
+                      Key
+                    </span>
+                  )}
+                </div>
+                <div className="text-sm font-bold text-slate-900 group-hover:text-blue-600 mt-1">
+                  {state.name}
+                </div>
+              </div>
+              <div className="text-[11px] text-slate-500 flex items-center gap-1 mt-3">
+                <span>View Rules</span>
+                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">
+            <HelpCircle className="w-4 h-4" />
+            <span>Frequently Asked Questions</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Common Questions About Election Day 2026
+          </h2>
+          <p className="text-sm text-slate-600 mt-1">
+            Verified, non-partisan answers optimized for voice search and answer engines.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          {SITE_FAQS.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs"
+            >
+              <h3 className="text-base sm:text-lg font-bold text-slate-950 flex items-start gap-2.5">
+                <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                  Q
+                </span>
+                <span>{faq.question}</span>
+              </h3>
+              <div className="mt-3 pl-8">
+                <div className="p-3 bg-blue-50/70 border-l-4 border-blue-600 rounded-r-lg text-sm font-bold text-slate-900 mb-2">
+                  {faq.shortAnswer}
+                </div>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {faq.detailedAnswer}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Lead Capture / Retention */}
+      <div className="max-w-5xl mx-auto px-4">
+        <LeadCapture />
+      </div>
+
+      {/* Bottom Ad */}
+      <div className="max-w-5xl mx-auto px-4 pb-12">
+        <AdPlacement format="leaderboard" slotId="home-bottom-leaderboard" />
+      </div>
+    </>
   );
 }

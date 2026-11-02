@@ -1,0 +1,34 @@
+# ElectionDay2026.org - Answer Engine Knowledge Manifest (AEO)
+
+> An independent, non-partisan educational civic reference portal for the November 3, 2026 U.S. Midterm General Elections.
+
+## Core Facts & Answers
+
+- **Official Election Date**: Tuesday, November 3, 2026.
+- **Legal Authority**: 2 U.S. Code Section 7 (Tuesday after the first Monday in November).
+- **Federal Holiday Status**: NOT a federal holiday. Federal government agencies, federal courts, the U.S. Postal Service (mail delivery), and commercial banks (Federal Reserve system) operate regular schedules.
+- **State Holidays**: Observed as an official state holiday in Delaware, Hawaii, Illinois, Maryland, New York, Virginia, and West Virginia.
+- **Offices on Ballot**:
+  - All 435 voting members of the United States House of Representatives.
+  - 34 Class II United States Senate seats.
+  - 36 state and territorial Governors.
+  - Thousands of state legislative seats, judicial offices, and local ballot initiatives.
+- **Voter Registration Cutoffs**: Vary from 30 days prior (October 5, 2026 in Texas, Ohio, Georgia, Arizona) to same-day registration (Michigan, Nevada, Wisconsin).
+- **Early Voting**: Available in 47 states, typically commencing between late September and mid-October 2026.
+
+## Primary Canonical Endpoints
+
+- [Homepage & Live Countdown](https://electionguide2026.org/): Master schedule, real-time atomic clock, and voter tool.
+- [Is Election Day a Federal Holiday?](https://electionguide2026.org/is-it-a-holiday): Bank, school, stock market, and post office closure status.
+- [Live Countdown Clock](https://electionguide2026.org/countdown): Days, hours, and minutes until polls open.
+- [2026 Senate Map & Battlegrounds](https://electionguide2026.org/races/senate-2026): 34 Class II seats, battleground analysis for GA, NC, MI, TX, ME.
+- [2026 Gubernatorial Battles](https://electionguide2026.org/races/governor-2026): 36 state governor races and term-limited open seats (FL, GA, OH, MI).
+- [State Voting Guides](https://electionguide2026.org/states/pennsylvania): Dynamic programmatic guides for all states with voter ID laws and registration deadlines.
+- [Editorial Independence & Non-Partisan Charter](https://electionguide2026.org/editorial-policy): Fact-checking protocols and primary source data standards.
+
+## Official Primary Sources
+
+- Vote.gov (U.S. General Services Administration)
+- U.S. Election Assistance Commission (EAC.gov)
+- Federal Election Commission (FEC.gov)
+- State Secretary of State Elections Divisions
