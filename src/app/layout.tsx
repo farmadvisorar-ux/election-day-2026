@@ -107,6 +107,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-364WE177K3"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-364WE177K3');
+`,
+          }}
+        />
         <link rel="canonical" href="https://electionguide2026.org" />
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
