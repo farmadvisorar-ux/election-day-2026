@@ -37,7 +37,7 @@ export default async function Image({ params }: Props) {
             fontWeight: 900,
           }}
         >
-          ElectionDay2026.org — U.S. County Voter Guide
+          {'ElectionDay2026.org — U.S. County Voter Guide'}
         </div>
       ),
       { ...size }
@@ -68,6 +68,7 @@ export default async function Image({ params }: Props) {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div
               style={{
+                display: 'flex',
                 backgroundColor: '#2563eb',
                 color: '#ffffff',
                 padding: '8px 16px',
@@ -76,10 +77,11 @@ export default async function Image({ params }: Props) {
                 fontWeight: 800,
               }}
             >
-              FIPS {county.fips}
+              {`FIPS ${county.fips}`}
             </div>
             <div
               style={{
+                display: 'flex',
                 backgroundColor: '#1e293b',
                 border: '1px solid #334155',
                 color: '#93c5fd',
@@ -89,10 +91,11 @@ export default async function Image({ params }: Props) {
                 fontWeight: 700,
               }}
             >
-              County Seat: {county.countySeat}
+              {`County Seat: ${county.countySeat}`}
             </div>
             <div
               style={{
+                display: 'flex',
                 backgroundColor: '#1e293b',
                 border: '1px solid #334155',
                 color: '#cbd5e1',
@@ -102,12 +105,13 @@ export default async function Image({ params }: Props) {
                 fontWeight: 700,
               }}
             >
-              CD: {county.congressionalDistricts.slice(0, 3).join(', ')}
+              {`CD: ${county.congressionalDistricts.slice(0, 3).join(', ')}`}
             </div>
           </div>
 
           <div
             style={{
+              display: 'flex',
               backgroundColor: '#f59e0b',
               color: '#0f172a',
               padding: '8px 18px',
@@ -116,20 +120,20 @@ export default async function Image({ params }: Props) {
               fontWeight: 900,
             }}
           >
-            NOV 3, 2026 MIDTERMS
+            {'NOV 3, 2026 MIDTERMS'}
           </div>
         </div>
 
         {/* Main County Title */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '12px' }}>
-          <div style={{ fontSize: 64, fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em' }}>
-            {county.name}, {state.postalCode}
+          <div style={{ display: 'flex', fontSize: 64, fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+            {`${county.name}, ${state.postalCode}`}
           </div>
-          <div style={{ fontSize: 28, color: '#93c5fd', fontWeight: 700 }}>
-            {authorityTitle} • 2026 Official Voter Guide
+          <div style={{ display: 'flex', fontSize: 28, color: '#93c5fd', fontWeight: 700 }}>
+            {`${authorityTitle} • 2026 Official Voter Guide`}
           </div>
-          <div style={{ fontSize: 20, color: '#cbd5e1' }}>
-            Serving {county.topCities.slice(0, 4).join(', ')} (USPS ZIPs {county.zipRange})
+          <div style={{ display: 'flex', fontSize: 20, color: '#cbd5e1' }}>
+            {`Serving ${county.topCities.slice(0, 4).join(', ')} (USPS ZIPs ${county.zipRange})`}
           </div>
         </div>
 
@@ -146,30 +150,11 @@ export default async function Image({ params }: Props) {
               flexDirection: 'column',
             }}
           >
-            <div style={{ fontSize: 15, color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>
-              Nov 3 Poll Hours
+            <div style={{ display: 'flex', fontSize: 15, color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>
+              {'Nov 3 Poll Hours'}
             </div>
-            <div style={{ fontSize: 24, color: '#ffffff', fontWeight: 800, marginTop: '6px' }}>
-              {pollHours}
-            </div>
-          </div>
-
-          <div
-            style={{
-              flex: 1,
-              backgroundColor: 'rgba(30, 41, 59, 0.9)',
-              border: '1px solid #334155',
-              borderRadius: '16px',
-              padding: '20px 24px',
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <div style={{ fontSize: 15, color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>
-              Voter ID Requirement
-            </div>
-            <div style={{ fontSize: 24, color: '#fbbf24', fontWeight: 800, marginTop: '6px' }}>
-              {state.voterId.type}
+            <div style={{ display: 'flex', fontSize: 24, color: '#ffffff', fontWeight: 800, marginTop: '6px' }}>
+              {`${pollHours}`}
             </div>
           </div>
 
@@ -184,11 +169,30 @@ export default async function Image({ params }: Props) {
               flexDirection: 'column',
             }}
           >
-            <div style={{ fontSize: 15, color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>
-              Census Electorate
+            <div style={{ display: 'flex', fontSize: 15, color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>
+              {'Voter ID Requirement'}
             </div>
-            <div style={{ fontSize: 24, color: '#34d399', fontWeight: 800, marginTop: '6px' }}>
-              {county.population.toLocaleString()} Pop.
+            <div style={{ display: 'flex', fontSize: 24, color: '#fbbf24', fontWeight: 800, marginTop: '6px' }}>
+              {`${state.voterId.type}`}
+            </div>
+          </div>
+
+          <div
+            style={{
+              flex: 1,
+              backgroundColor: 'rgba(30, 41, 59, 0.9)',
+              border: '1px solid #334155',
+              borderRadius: '16px',
+              padding: '20px 24px',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <div style={{ display: 'flex', fontSize: 15, color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>
+              {'Census Electorate'}
+            </div>
+            <div style={{ display: 'flex', fontSize: 24, color: '#34d399', fontWeight: 800, marginTop: '6px' }}>
+              {`${county.population.toLocaleString()} Pop.`}
             </div>
           </div>
         </div>
@@ -205,9 +209,9 @@ export default async function Image({ params }: Props) {
             color: '#94a3b8',
           }}
         >
-          <div>ElectionDay2026.org • Non-Partisan Civic Reference</div>
-          <div style={{ color: '#e2e8f0', fontWeight: 700 }}>
-            /states/{state.slug}/counties/{county.slug}
+          <div style={{ display: 'flex' }}>{'ElectionDay2026.org • Non-Partisan Civic Reference'}</div>
+          <div style={{ display: 'flex', color: '#e2e8f0', fontWeight: 700 }}>
+            {`/states/${state.slug}/counties/${county.slug}`}
           </div>
         </div>
       </div>
