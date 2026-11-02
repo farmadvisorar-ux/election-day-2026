@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     'Free interactive generator for requesting paid or unpaid time off work to vote on Election Day 2026. Automatically cites your state’s exact voting leave statute (Cal. Elec. Code § 14000, TX Elec. Code § 276.004, NY Elec. Law § 3-110).',
   alternates: {
-    canonical: 'https://electionguide2026.org/tools/employer-voting-leave-notice',
+    canonical: 'https://election-day-2026.vercel.app/tools/employer-voting-leave-notice',
   },
   keywords: [
     'do employers have to give time off to vote 2026',
@@ -35,7 +35,7 @@ export default function EmployerVotingLeaveNoticePage() {
       {
         '@type': 'WebApplication',
         name: '2026 Statutory Employer Voting Leave Notice Generator',
-        url: 'https://electionguide2026.org/tools/employer-voting-leave-notice',
+        url: 'https://election-day-2026.vercel.app/tools/employer-voting-leave-notice',
         applicationCategory: 'CivicApplication',
         operatingSystem: 'All',
         offers: {

@@ -48,13 +48,13 @@ export default function VoterQuestionsPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://electionguide2026.org',
+        item: 'https://election-day-2026.vercel.app',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Voter Questions & FAQ Directory',
-        item: 'https://electionguide2026.org/voter-questions',
+        item: 'https://election-day-2026.vercel.app/voter-questions',
       },
     ],
   };

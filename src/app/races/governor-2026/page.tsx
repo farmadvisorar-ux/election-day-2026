@@ -30,13 +30,13 @@ export default function Governor2026Page() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://electionguide2026.org',
+        item: 'https://election-day-2026.vercel.app',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: '2026 Governor Races',
-        item: 'https://electionguide2026.org/races/governor-2026',
+        item: 'https://election-day-2026.vercel.app/races/governor-2026',
       },
     ],
   };

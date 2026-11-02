@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     'Complete county-by-county Election Day 2026 directory covering all 3,143 U.S. counties, parishes, boroughs, and independent cities across all 50 states and D.C. Find local Board of Elections portals, FIPS codes, early voting sites, and November 3, 2026 polling hours.',
   alternates: {
-    canonical: 'https://electionguide2026.org/counties',
+    canonical: 'https://election-day-2026.vercel.app/counties',
   },
   keywords: [
     'election day 2026 by county',
@@ -35,14 +35,14 @@ export default function CountiesDirectoryPage() {
         name: 'All 3,143 U.S. Counties Election Day 2026 Voting Directory',
         description:
           'State-by-state and county-by-county index of all 3,143 U.S. local election jurisdictions, FIPS codes, polling hours, and voter registration deadlines for the Tuesday, November 3, 2026 General Midterm Election.',
-        url: 'https://electionguide2026.org/counties',
+        url: 'https://election-day-2026.vercel.app/counties',
       },
       {
         '@type': 'Dataset',
         name: '2026 U.S. Midterm Election 3,143-County FIPS & Jurisdiction Dataset',
         description:
           'Comprehensive dataset mapping all 3,143 U.S. counties, parishes, boroughs, census areas, and independent cities to their 2026 state statutory voting deadlines, polling hours, Voter ID classifications, and local election authorities.',
-        url: 'https://electionguide2026.org/counties',
+        url: 'https://election-day-2026.vercel.app/counties',
         license: 'https://creativecommons.org/publicdomain/zero/1.0/',
         creator: {
           '@type': 'Organization',

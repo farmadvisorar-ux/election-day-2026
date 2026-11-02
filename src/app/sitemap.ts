@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next';
 import { STATES_DATA, TOPIC_SPOKES } from '../data/states';
 import { COUNTIES_BY_STATE } from '../data/counties';
+import { ALL_DISTRICTS_LIST } from '../data/districts';
+import { SITE_URL } from '../lib/siteConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://electionguide2026.org';
+  const baseUrl = SITE_URL;
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -18,6 +20,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'daily',
       priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/districts`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/primary-calendar-2026`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/voter-eligibility-guide`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/50-state-comparison-matrix`,
@@ -102,6 +122,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // 436 Congressional District Pages (435 U.S. House Seats + DC-AL)
+  const districtRoutes: MetadataRoute.Sitemap = ALL_DISTRICTS_LIST.map((d) => ({
+    url: `${baseUrl}/districts/${d.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
+
   // 3,143 County-by-County Election Jurisdiction Pages (All 50 States + D.C.)
   const countyRoutes: MetadataRoute.Sitemap = [];
   for (const [stateSlug, counties] of Object.entries(COUNTIES_BY_STATE)) {
@@ -115,5 +143,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return [...staticRoutes, ...stateHubRoutes, ...stateTopicSpokeRoutes, ...countyRoutes];
+  return [
+    ...staticRoutes,
+    ...stateHubRoutes,
+    ...stateTopicSpokeRoutes,
+    ...districtRoutes,
+    ...countyRoutes,
+  ];
 }

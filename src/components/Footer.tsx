@@ -57,6 +57,21 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/districts" className="text-indigo-400 hover:text-white font-bold transition-colors">
+                  All 435 U.S. House Districts Directory
+                </Link>
+              </li>
+              <li>
+                <Link href="/primary-calendar-2026" className="text-amber-300 hover:text-white font-bold transition-colors">
+                  2026 State Primary Election Calendar
+                </Link>
+              </li>
+              <li>
+                <Link href="/voter-eligibility-guide" className="hover:text-white transition-colors">
+                  Student, Military (UOCAVA) &amp; Eligibility Guide
+                </Link>
+              </li>
+              <li>
                 <Link href="/50-state-comparison-matrix" className="hover:text-white transition-colors">
                   50-State Master Comparison Matrix
                 </Link>

@@ -45,13 +45,13 @@ export default function CountdownPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://electionguide2026.org',
+        item: 'https://election-day-2026.vercel.app',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: '2026 Countdown',
-        item: 'https://electionguide2026.org/countdown',
+        item: 'https://election-day-2026.vercel.app/countdown',
       },
     ],
   };
@@ -150,7 +150,7 @@ export default function CountdownPage() {
           </p>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-white/10 font-mono text-xs text-blue-200 overflow-x-auto">
-            {`<iframe src="https://electionguide2026.org/embed/countdown" width="100%" height="220" frameborder="0" title="Election Day 2026 Countdown" style="border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);"></iframe>`}
+            {`<iframe src="https://election-day-2026.vercel.app/embed/countdown" width="100%" height="220" frameborder="0" title="Election Day 2026 Countdown" style="border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);"></iframe>`}
           </div>
 
           <p className="text-xs text-slate-400 mt-3">

@@ -18,27 +18,27 @@
 
 ## Machine-Readable Open Data & RAG Endpoints
 
-- **JSON Open Dataset API (CORS-Enabled)**: `https://electionguide2026.org/api/datasets/elections-2026`
+- **JSON Open Dataset API (CORS-Enabled)**: `https://election-day-2026.vercel.app/api/datasets/elections-2026`
   Returns complete JSON of all 51 U.S. jurisdictions, 3,143 county FIPS records, Wikidata Q-IDs, registration deadlines, early voting windows, mail-in ballot postmark rules, Voter ID classifications, polling hours, paid work leave citations, and verified FAQ clusters.
-- **Individual County FIPS & City Lookup API (CORS-Enabled)**: `https://electionguide2026.org/api/datasets/counties/{fips-or-slug}`
+- **Individual County FIPS & City Lookup API (CORS-Enabled)**: `https://election-day-2026.vercel.app/api/datasets/counties/{fips-or-slug}`
   Example: `/api/datasets/counties/48201` (Harris County, TX), `/api/datasets/counties/04013` (Maricopa County, AZ), `/api/datasets/counties/42003` (Allegheny County, PA). Returns County Wikidata Q-ID, County Seat, Top Cities, USPS ZIP code range, 120th U.S. Congress House Districts, Census Population, CVAP, 2022/2024 Turnout Benchmarks, Split-Timezone Overrides, and U.S. Census Bordering Counties (including cross-state commuter pairs).
-- **Embeddable Local County Widget (3,143 FIPS Jurisdictions)**: `https://electionguide2026.org/embed/county/{fips}`
-- **50-State + D.C. Comparison Matrix**: `https://electionguide2026.org/50-state-comparison-matrix`
-- **Employer Voting Leave Legal Notice Generator**: `https://electionguide2026.org/tools/employer-voting-leave-notice`
-- **Bilingual Spanish Hub (Guía Oficial en Español)**: `https://electionguide2026.org/es/dia-de-las-elecciones-2026`
+- **Embeddable Local County Widget (3,143 FIPS Jurisdictions)**: `https://election-day-2026.vercel.app/embed/county/{fips}`
+- **50-State + D.C. Comparison Matrix**: `https://election-day-2026.vercel.app/50-state-comparison-matrix`
+- **Employer Voting Leave Legal Notice Generator**: `https://election-day-2026.vercel.app/tools/employer-voting-leave-notice`
+- **Bilingual Spanish Hub (Guía Oficial en Español)**: `https://election-day-2026.vercel.app/es/dia-de-las-elecciones-2026`
 
 ## Multi-Dimensional Programmatic URL Architecture (3,512 State, County & Topic Pages)
 
-- **National 3,143-County Election Directory & FIPS Search**: `https://electionguide2026.org/counties`
-- **County-by-County Election Guides (All 3,143 U.S. Counties, Parishes, Boroughs & Independent Cities)**: `https://electionguide2026.org/states/{state-slug}/counties/{county-slug}` (e.g., `/states/texas/counties/harris-county`, `/states/arizona/counties/maricopa-county`, `/states/pennsylvania/counties/allegheny-county`, `/states/california/counties/los-angeles-county`, `/states/florida/counties/miami-dade-county`, `/states/illinois/counties/cook-county`)
-- **State Overview Hubs (51 Jurisdictions)**: `https://electionguide2026.org/states/{state-slug}` (e.g., `/states/pennsylvania`, `/states/texas`, `/states/georgia`, `/states/california`, `/states/newyork`)
+- **National 3,143-County Election Directory & FIPS Search**: `https://election-day-2026.vercel.app/counties`
+- **County-by-County Election Guides (All 3,143 U.S. Counties, Parishes, Boroughs & Independent Cities)**: `https://election-day-2026.vercel.app/states/{state-slug}/counties/{county-slug}` (e.g., `/states/texas/counties/harris-county`, `/states/arizona/counties/maricopa-county`, `/states/pennsylvania/counties/allegheny-county`, `/states/california/counties/los-angeles-county`, `/states/florida/counties/miami-dade-county`, `/states/illinois/counties/cook-county`)
+- **State Overview Hubs (51 Jurisdictions)**: `https://election-day-2026.vercel.app/states/{state-slug}` (e.g., `/states/pennsylvania`, `/states/texas`, `/states/georgia`, `/states/california`, `/states/newyork`)
 - **State Topic Spokes (306 Dedicated Statutory Pages)**:
-  1. `https://electionguide2026.org/states/{state-slug}/registration-deadline`
-  2. `https://electionguide2026.org/states/{state-slug}/early-voting`
-  3. `https://electionguide2026.org/states/{state-slug}/voter-id-rules`
-  4. `https://electionguide2026.org/states/{state-slug}/mail-in-ballot`
-  5. `https://electionguide2026.org/states/{state-slug}/polling-hours`
-  6. `https://electionguide2026.org/states/{state-slug}/holiday-work-laws`
+  1. `https://election-day-2026.vercel.app/states/{state-slug}/registration-deadline`
+  2. `https://election-day-2026.vercel.app/states/{state-slug}/early-voting`
+  3. `https://election-day-2026.vercel.app/states/{state-slug}/voter-id-rules`
+  4. `https://election-day-2026.vercel.app/states/{state-slug}/mail-in-ballot`
+  5. `https://election-day-2026.vercel.app/states/{state-slug}/polling-hours`
+  6. `https://election-day-2026.vercel.app/states/{state-slug}/holiday-work-laws`
 
 ## Semantic Query & Phonetic Typo Disambiguation
 

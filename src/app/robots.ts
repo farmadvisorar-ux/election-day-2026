@@ -41,7 +41,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://electionguide2026.org/sitemap.xml',
-    host: 'https://electionguide2026.org',
+    sitemap: 'https://election-day-2026.vercel.app/sitemap.xml',
+    host: 'https://election-day-2026.vercel.app',
   };
 }

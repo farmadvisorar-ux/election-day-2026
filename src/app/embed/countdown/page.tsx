@@ -10,7 +10,7 @@ export default function EmbedCountdownPage() {
         <CountdownTimer compact={false} />
         <div className="mt-2 text-center">
           <a
-            href="https://electionguide2026.org"
+            href="https://election-day-2026.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[10px] text-slate-400 hover:text-white transition-colors inline-flex items-center gap-1"

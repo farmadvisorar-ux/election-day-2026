@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${state.name} Election Day 2026: Deadlines, Early Voting, ID Laws & Polling Hours`,
     description: `Official non-partisan voting guide for ${state.name} (${state.postalCode}) on November 3, 2026. Voter registration deadlines (${state.registrationDeadline.online}), early voting dates, paid work leave (${state.workLeaveLaw.statuteCitation}), and ${state.name} Secretary of State portals.`,
     alternates: {
-      canonical: `https://electionguide2026.org/states/${state.slug}`,
+      canonical: `https://election-day-2026.vercel.app/states/${state.slug}`,
     },
     keywords: [
       `${state.name} election day 2026`,
@@ -117,19 +117,19 @@ export default async function StatePage({ params }: Props) {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://electionguide2026.org',
+            item: 'https://election-day-2026.vercel.app',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: '50-State Directory',
-            item: 'https://electionguide2026.org/50-state-comparison-matrix',
+            item: 'https://election-day-2026.vercel.app/50-state-comparison-matrix',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: `${state.name} 2026 Voting Guide`,
-            item: `https://electionguide2026.org/states/${state.slug}`,
+            item: `https://election-day-2026.vercel.app/states/${state.slug}`,
           },
         ],
       },

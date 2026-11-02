@@ -58,7 +58,7 @@ export async function GET(_request: Request, context: RouteContext) {
       stateCode: n.stateCode,
       countySeat: n.countySeat,
       crossStateBorder: n.stateCode !== match.stateCode,
-      canonicalUrl: `https://electionguide2026.org/states/${n.stateSlug}/counties/${n.slug}`,
+      canonicalUrl: `https://election-day-2026.vercel.app/states/${n.stateSlug}/counties/${n.slug}`,
     }));
 
   const payload = {
@@ -96,8 +96,8 @@ export async function GET(_request: Request, context: RouteContext) {
         workplaceLeaveHours: state?.workLeaveLaw.hoursAllowed,
       },
       officialLinks: {
-        canonicalGuideUrl: `https://electionguide2026.org/states/${match.stateSlug}/counties/${match.slug}`,
-        embedWidgetUrl: `https://electionguide2026.org/embed/county/${match.fips}`,
+        canonicalGuideUrl: `https://election-day-2026.vercel.app/states/${match.stateSlug}/counties/${match.slug}`,
+        embedWidgetUrl: `https://election-day-2026.vercel.app/embed/county/${match.fips}`,
         localCountyWebsite: match.localWebsite || null,
         stateElectionPortal: state?.officialPortal.url,
       },

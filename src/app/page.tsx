@@ -70,7 +70,7 @@ export default function HomePage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://electionguide2026.org',
+        item: 'https://election-day-2026.vercel.app',
       },
     ],
   };
@@ -295,7 +295,7 @@ export default function HomePage() {
 
       {/* Presidential-Grade Civic Utilities & Open Data Command Bar */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <Link
             href="/counties"
             className="p-5 rounded-2xl bg-gradient-to-br from-blue-700 to-indigo-950 text-white border border-blue-500/50 hover:shadow-lg transition-all flex flex-col justify-between"
@@ -308,11 +308,53 @@ export default function HomePage() {
                 All 3,143 U.S. Counties Election Directory
               </h3>
               <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
-                Search every county, parish, borough & independent city across all 50 states for local Board of Elections portals and polling hours.
+                Search every county, parish, borough &amp; independent city across all 50 states for local Board of Elections portals and polling hours.
               </p>
             </div>
             <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
               <span>Browse 3,143 Counties</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/districts"
+            className="p-5 rounded-2xl bg-gradient-to-br from-indigo-800 to-slate-950 text-white border border-indigo-600/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                120th U.S. Congress
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                All 435 U.S. House Congressional Districts
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Lookup every U.S. House district (PA-01, TX-07, CA-27, NY-17) with county crosswalks, cities, ZIPs, and polling hours.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Explore 435 Districts</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/primary-calendar-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-indigo-950 text-white border border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                March – Sept 2026 Schedule
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                2026 State Primary Election Calendar
+              </h3>
+              <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                Chronological 50-state schedule of 2026 primary election dates, runoff dates, and Open vs. Closed primary rules.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
+              <span>View 2026 Primary Dates</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </Link>
@@ -329,7 +371,7 @@ export default function HomePage() {
                 Paid Time Off to Vote HR Notice Generator
               </h3>
               <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
-                Generate a legally cited notice for your boss quoting your state's exact voting leave statute (e.g., TX Elec. Code § 276.004).
+                Generate a legally cited notice for your boss quoting your state&apos;s exact voting leave statute (e.g., TX Elec. Code § 276.004).
               </p>
             </div>
             <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
@@ -360,22 +402,22 @@ export default function HomePage() {
           </Link>
 
           <Link
-            href="/es/dia-de-las-elecciones-2026"
+            href="/voter-eligibility-guide"
             className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 text-white border border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between"
           >
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-blue-300">
-                🇺🇸 / 🇪🇸 Recursos Bilingües
+                Students • Military • Accessibility
               </span>
               <h3 className="text-lg font-black mt-1">
-                Guía Oficial en Español 2026
+                2026 Special Voter Eligibility Guide
               </h3>
               <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
-                Fechas límite de registro, requisitos de identificación con foto, horarios de las urnas y derechos laborales en español.
+                Campus dorm vs. home-state voting (Symm v. US), overseas military UOCAVA ballots (FVAP), and felon voting restoration.
               </p>
             </div>
             <span className="mt-4 text-xs font-bold text-blue-300 flex items-center gap-1">
-              <span>Ver Guía en Español</span>
+              <span>Read Eligibility Guide</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </Link>

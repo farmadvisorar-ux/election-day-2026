@@ -80,13 +80,13 @@ export default function IsItAHolidayPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://electionguide2026.org',
+        item: 'https://election-day-2026.vercel.app',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Is Election Day a Federal Holiday?',
-        item: 'https://electionguide2026.org/is-it-a-holiday',
+        item: 'https://election-day-2026.vercel.app/is-it-a-holiday',
       },
     ],
   };

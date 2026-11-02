@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${county.name}, ${state.postalCode} (${county.countySeat}) Election Day 2026: Poll Hours, Early Voting & Ballot`,
     description: `Official 2026 Election Day voter guide for ${county.name}, ${state.name} (FIPS ${county.fips} • County Seat: ${county.countySeat} • ZIPs ${county.zipRange}). Nov 3, 2026 poll hours (${effectiveHours}), ${authorityTitle} deadlines, Congressional Districts (${county.congressionalDistricts.join(', ')}), and Voter ID rules.`,
     alternates: {
-      canonical: `https://electionguide2026.org/states/${state.slug}/counties/${county.slug}`,
+      canonical: `https://election-day-2026.vercel.app/states/${state.slug}/counties/${county.slug}`,
     },
     keywords: [
       `${county.name.toLowerCase()} ${state.name.toLowerCase()} election day 2026`,
@@ -139,7 +139,7 @@ export default async function CountyElectionPage({ params }: Props) {
     '@graph': [
       {
         '@type': 'AdministrativeArea',
-        '@id': `https://electionguide2026.org/states/${state.slug}/counties/${county.slug}#jurisdiction`,
+        '@id': `https://election-day-2026.vercel.app/states/${state.slug}/counties/${county.slug}#jurisdiction`,
         name: `${county.name}, ${state.name}`,
         identifier: `FIPS:${county.fips}`,
         sameAs: `https://www.wikidata.org/wiki/${county.wikidataId}`,
@@ -164,7 +164,7 @@ export default async function CountyElectionPage({ params }: Props) {
           url: county.localWebsite || state.officialPortal.url,
         },
         areaServed: {
-          '@id': `https://electionguide2026.org/states/${state.slug}/counties/${county.slug}#jurisdiction`,
+          '@id': `https://election-day-2026.vercel.app/states/${state.slug}/counties/${county.slug}#jurisdiction`,
         },
       },
       {
@@ -185,25 +185,25 @@ export default async function CountyElectionPage({ params }: Props) {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://electionguide2026.org',
+            item: 'https://election-day-2026.vercel.app',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All 3,143 U.S. Counties',
-            item: 'https://electionguide2026.org/counties',
+            item: 'https://election-day-2026.vercel.app/counties',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: `${state.name} (${state.postalCode})`,
-            item: `https://electionguide2026.org/states/${state.slug}`,
+            item: `https://election-day-2026.vercel.app/states/${state.slug}`,
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: `${county.name} (FIPS ${county.fips})`,
-            item: `https://electionguide2026.org/states/${state.slug}/counties/${county.slug}`,
+            item: `https://election-day-2026.vercel.app/states/${state.slug}/counties/${county.slug}`,
           },
         ],
       },
@@ -374,7 +374,17 @@ export default async function CountyElectionPage({ params }: Props) {
                 <tr>
                   <td className="py-3 px-4 font-bold text-slate-900">U.S. House District(s)</td>
                   <td className="py-3 px-4 font-mono font-bold text-indigo-700">
-                    {county.congressionalDistricts.join(', ')}
+                    <div className="flex flex-wrap gap-1.5">
+                      {county.congressionalDistricts.map((cd) => (
+                        <Link
+                          key={cd}
+                          href={`/districts/${cd.toLowerCase()}`}
+                          className="px-2 py-0.5 bg-indigo-50 hover:bg-indigo-600 text-indigo-800 hover:text-white rounded border border-indigo-200 transition-colors"
+                        >
+                          {cd} →
+                        </Link>
+                      ))}
+                    </div>
                   </td>
                   <td className="py-3 px-4 text-slate-500">120th U.S. Congress (2026 Ballot)</td>
                 </tr>
@@ -486,9 +496,21 @@ export default async function CountyElectionPage({ params }: Props) {
               <div className="text-sm font-bold text-slate-900 mt-0.5">
                 2026 Congressional Election for {county.name} ({county.congressionalDistricts.join(' & ')})
               </div>
-              <p className="text-xs text-slate-600 mt-1">
-                Voters in {county.countySeat} and across {county.name} will elect their representative(s) to the 120th United States Congress for {county.congressionalDistricts.join(', ')}.
+              <p className="text-xs text-slate-600 mt-1 mb-2.5">
+                Voters in {county.countySeat} and across {county.name} will elect their representative(s) to the 120th United States Congress. Inspect district boundaries and polling rules:
               </p>
+              <div className="flex flex-wrap gap-2">
+                {county.congressionalDistricts.map((cd) => (
+                  <Link
+                    key={cd}
+                    href={`/districts/${cd.toLowerCase()}`}
+                    className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white font-mono text-xs font-bold rounded-lg transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>{cd} District Guide</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {state.keyRaces2026.senate && (

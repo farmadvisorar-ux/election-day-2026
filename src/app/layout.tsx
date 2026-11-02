@@ -6,7 +6,7 @@ import { JsonLd } from '../components/JsonLd';
 import { StickyMobileAd } from '../components/StickyMobileAd';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://electionguide2026.org'),
+  metadataBase: new URL('https://election-day-2026.vercel.app'),
   title: {
     default: 'Election Day 2026: Official Date, Deadlines, Countdown & Voter Guide',
     template: '%s | ElectionDay2026.org',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://electionguide2026.org',
+    url: 'https://election-day-2026.vercel.app',
     siteName: 'ElectionDay2026.org',
     title: 'Election Day 2026: Date, Deadlines & Voting Guide',
     description:
@@ -75,7 +75,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'CivicStructure',
     name: 'ElectionDay2026.org Civic Educational Initiative',
-    url: 'https://electionguide2026.org',
+    url: 'https://election-day-2026.vercel.app',
     description:
       'An independent, non-partisan educational portal providing accurate statutory election dates, voting regulations, and civic information for the 2026 U.S. Midterm Elections.',
     sameAs: [
@@ -96,10 +96,10 @@ export default function RootLayout({
       'Vote Day 2026',
       'Mid Term Elections 2026',
     ],
-    url: 'https://electionguide2026.org',
+    url: 'https://election-day-2026.vercel.app',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://electionguide2026.org/voter-questions?q={search_term_string}',
+      target: 'https://election-day-2026.vercel.app/voter-questions?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };
@@ -123,7 +123,7 @@ export default function RootLayout({
 `,
           }}
         />
-        <link rel="canonical" href="https://electionguide2026.org" />
+        <link rel="canonical" href="https://election-day-2026.vercel.app" />
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
       </head>

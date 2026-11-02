@@ -232,7 +232,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: content.title,
     description: content.metaDesc,
     alternates: {
-      canonical: `https://electionguide2026.org/states/${state.slug}/${validSpoke.topicSlug}`,
+      canonical: `https://election-day-2026.vercel.app/states/${state.slug}/${validSpoke.topicSlug}`,
     },
     keywords: [
       `${state.name.toLowerCase()} ${validSpoke.label.toLowerCase()} 2026`,
@@ -261,8 +261,8 @@ export default async function StateTopicSpokePage({ params }: Props) {
     '@graph': [
       {
         '@type': 'WebPage',
-        '@id': `https://electionguide2026.org/states/${state.slug}/${validSpoke.topicSlug}`,
-        url: `https://electionguide2026.org/states/${state.slug}/${validSpoke.topicSlug}`,
+        '@id': `https://election-day-2026.vercel.app/states/${state.slug}/${validSpoke.topicSlug}`,
+        url: `https://election-day-2026.vercel.app/states/${state.slug}/${validSpoke.topicSlug}`,
         name: content.title,
         description: content.metaDesc,
         inLanguage: 'en-US',
@@ -309,19 +309,19 @@ export default async function StateTopicSpokePage({ params }: Props) {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://electionguide2026.org',
+            item: 'https://election-day-2026.vercel.app',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: `${state.name} 2026 Hub`,
-            item: `https://electionguide2026.org/states/${state.slug}`,
+            item: `https://election-day-2026.vercel.app/states/${state.slug}`,
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: validSpoke.shortTitle,
-            item: `https://electionguide2026.org/states/${state.slug}/${validSpoke.topicSlug}`,
+            item: `https://election-day-2026.vercel.app/states/${state.slug}/${validSpoke.topicSlug}`,
           },
         ],
       },

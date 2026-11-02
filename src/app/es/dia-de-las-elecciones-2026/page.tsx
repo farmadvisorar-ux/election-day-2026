@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   description:
     'Guía oficial no partidista para el Día de las Elecciones 2026 en Estados Unidos (Martes 3 de noviembre de 2026). Fechas límite de registro, voto anticipado, requisitos de identificación y horarios de las urnas.',
   alternates: {
-    canonical: 'https://electionguide2026.org/es/dia-de-las-elecciones-2026',
+    canonical: 'https://election-day-2026.vercel.app/es/dia-de-las-elecciones-2026',
     languages: {
-      'en-US': 'https://electionguide2026.org/',
-      'es-US': 'https://electionguide2026.org/es/dia-de-las-elecciones-2026',
+      'en-US': 'https://election-day-2026.vercel.app/',
+      'es-US': 'https://election-day-2026.vercel.app/es/dia-de-las-elecciones-2026',
     },
   },
   keywords: [
@@ -33,7 +33,7 @@ export default function SpanishElectionGuidePage() {
     '@graph': [
       {
         '@type': 'WebPage',
-        url: 'https://electionguide2026.org/es/dia-de-las-elecciones-2026',
+        url: 'https://election-day-2026.vercel.app/es/dia-de-las-elecciones-2026',
         name: 'Día de las Elecciones 2026 en Estados Unidos: Fecha, Requisitos y Guía Electoral',
         inLanguage: 'es-US',
       },

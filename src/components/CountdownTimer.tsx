@@ -52,7 +52,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({ compact = false 
   }, [targetDate]);
 
   const copyEmbedCode = () => {
-    const embedCode = `<iframe src="https://electionguide2026.org/embed/countdown" width="100%" height="220" frameborder="0" title="Election Day 2026 Countdown" style="border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);"></iframe>`;
+    const embedCode = `<iframe src="https://election-day-2026.vercel.app/embed/countdown" width="100%" height="220" frameborder="0" title="Election Day 2026 Countdown" style="border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);"></iframe>`;
     navigator.clipboard.writeText(embedCode);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -158,7 +158,7 @@ export const CountdownTimer: React.FC<CountdownTimerProps> = ({ compact = false 
             </button>
           </div>
           <pre className="text-[11px] font-mono bg-slate-950 p-2.5 rounded border border-white/10 overflow-x-auto text-blue-300">
-            {`<iframe src="https://electionguide2026.org/embed/countdown" width="100%" height="220" frameborder="0" title="Election Day 2026 Countdown" style="border-radius:12px;"></iframe>`}
+            {`<iframe src="https://election-day-2026.vercel.app/embed/countdown" width="100%" height="220" frameborder="0" title="Election Day 2026 Countdown" style="border-radius:12px;"></iframe>`}
           </pre>
           <p className="text-[10px] text-slate-400 mt-1.5">
             Free to embed for educational, news, and civic websites. Provides live dynamic updates.

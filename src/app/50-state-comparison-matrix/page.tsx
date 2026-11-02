@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     'Complete 50-state + Washington D.C. statutory comparison table for Election Day 2026 (Tuesday, November 3, 2026). Compare voter registration deadlines, same-day registration, Voter ID laws, poll hours, and paid voting leave.',
   alternates: {
-    canonical: 'https://electionguide2026.org/50-state-comparison-matrix',
+    canonical: 'https://election-day-2026.vercel.app/50-state-comparison-matrix',
   },
   keywords: [
     '50 state voter registration deadlines 2026',
@@ -33,7 +33,7 @@ export default function FiftyStateMatrixPage() {
     name: '2026 United States Midterm General Election 50-State & D.C. Statutory Dataset',
     description:
       'Comprehensive machine-readable dataset of statutory voter registration deadlines, early voting windows, mail-in ballot postmark rules, Voter ID classifications, polling place hours, and employee paid voting leave statutes across all 50 U.S. states and the District of Columbia for the November 3, 2026 general election.',
-    url: 'https://electionguide2026.org/50-state-comparison-matrix',
+    url: 'https://election-day-2026.vercel.app/50-state-comparison-matrix',
     sameAs: 'https://www.wikidata.org/wiki/Q115931542',
     keywords: [
       'Election Day 2026',
@@ -46,7 +46,7 @@ export default function FiftyStateMatrixPage() {
     creator: {
       '@type': 'Organization',
       name: 'ElectionDay2026.org Civic Research Initiative',
-      url: 'https://electionguide2026.org',
+      url: 'https://election-day-2026.vercel.app',
     },
     license: 'https://creativecommons.org/publicdomain/zero/1.0/',
     isAccessibleForFree: true,
@@ -59,7 +59,7 @@ export default function FiftyStateMatrixPage() {
       {
         '@type': 'DataDownload',
         encodingFormat: 'application/json',
-        contentUrl: 'https://electionguide2026.org/api/datasets/elections-2026',
+        contentUrl: 'https://election-day-2026.vercel.app/api/datasets/elections-2026',
       },
     ],
   };
