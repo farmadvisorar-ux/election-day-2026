@@ -541,9 +541,14 @@ export default async function StatePage({ params }: Props) {
                     <div className="text-xs font-bold text-slate-900 group-hover:text-white truncate">
                       {c.name}
                     </div>
-                    <div className="text-[10px] text-slate-500 group-hover:text-blue-100 flex items-center gap-1 mt-0.5">
+                    <div className="text-[10px] text-slate-600 group-hover:text-blue-100 truncate mt-0.5">
+                      Seat: {c.countySeat} • {c.congressionalDistricts.slice(0, 2).join(', ')}
+                    </div>
+                    <div className="text-[10px] text-slate-500 group-hover:text-blue-200 flex items-center gap-1 mt-0.5">
                       <Building2 className="w-3 h-3 shrink-0" />
                       <span className="font-mono">FIPS {c.fips}</span>
+                      <span>•</span>
+                      <span>Pop. {c.population.toLocaleString()}</span>
                     </div>
                   </div>
                   <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white shrink-0" />

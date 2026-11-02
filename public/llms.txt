@@ -19,7 +19,10 @@
 ## Machine-Readable Open Data & RAG Endpoints
 
 - **JSON Open Dataset API (CORS-Enabled)**: `https://electionguide2026.org/api/datasets/elections-2026`
-  Returns complete JSON of all 51 U.S. jurisdictions, Wikidata Q-IDs, registration deadlines, early voting windows, mail-in ballot postmark rules, Voter ID classifications, polling hours, paid work leave citations, and verified FAQ clusters.
+  Returns complete JSON of all 51 U.S. jurisdictions, 3,143 county FIPS records, Wikidata Q-IDs, registration deadlines, early voting windows, mail-in ballot postmark rules, Voter ID classifications, polling hours, paid work leave citations, and verified FAQ clusters.
+- **Individual County FIPS & City Lookup API (CORS-Enabled)**: `https://electionguide2026.org/api/datasets/counties/{fips-or-slug}`
+  Example: `/api/datasets/counties/48201` (Harris County, TX), `/api/datasets/counties/04013` (Maricopa County, AZ), `/api/datasets/counties/42003` (Allegheny County, PA). Returns County Wikidata Q-ID, County Seat, Top Cities, USPS ZIP code range, 120th U.S. Congress House Districts, Census Population, CVAP, 2022/2024 Turnout Benchmarks, Split-Timezone Overrides, and U.S. Census Bordering Counties (including cross-state commuter pairs).
+- **Embeddable Local County Widget (3,143 FIPS Jurisdictions)**: `https://electionguide2026.org/embed/county/{fips}`
 - **50-State + D.C. Comparison Matrix**: `https://electionguide2026.org/50-state-comparison-matrix`
 - **Employer Voting Leave Legal Notice Generator**: `https://electionguide2026.org/tools/employer-voting-leave-notice`
 - **Bilingual Spanish Hub (Guía Oficial en Español)**: `https://electionguide2026.org/es/dia-de-las-elecciones-2026`
