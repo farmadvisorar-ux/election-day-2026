@@ -1,43 +1,43 @@
-# ElectionDay2026.org - Answer Engine Knowledge Manifest (AEO)
+# ElectionDay2026.org - Presidential-Grade Answer Engine Knowledge Manifest (AEO & GEO)
 
-> An independent, non-partisan educational civic reference portal for the November 3, 2026 U.S. Midterm General Elections.
+> An independent, non-partisan educational civic reference portal and open statutory dataset for the November 3, 2026 U.S. Midterm General Elections across all 50 U.S. states and the District of Columbia.
 
-## Core Facts & Answers
+## Core Statutory Facts & Direct Answers
 
 - **Official Election Date**: Tuesday, November 3, 2026.
-- **Legal Authority**: 2 U.S. Code Section 7 (Tuesday after the first Monday in November).
-- **Federal Holiday Status**: NOT a federal holiday. Federal government agencies, federal courts, the U.S. Postal Service (mail delivery), and commercial banks (Federal Reserve system) operate regular schedules.
-- **State Holidays**: Observed as an official state holiday in Delaware, Hawaii, Illinois, Maryland, New York, Virginia, and West Virginia.
-- **Offices on Ballot**:
+- **Legal Authority**: 2 U.S. Code Section 7 (Tuesday next after the first Monday in November).
+- **Federal Holiday Status**: NOT a federal holiday (5 U.S.C. Section 6103). Federal government agencies, U.S. District Courts, the U.S. Postal Service (mail delivery), national commercial banks (Federal Reserve system), and Wall Street exchanges (NYSE, NASDAQ) operate regular schedules.
+- **State Holidays**: Observed as an official legal or public state holiday in Delaware, Hawaii, Illinois, Louisiana, Maryland, Montana, New Jersey, New York, Rhode Island, South Carolina, Virginia, and West Virginia.
+- **Workplace Voting Leave Laws**: Approximately 30 states legally mandate 1 to 3 hours of time off to vote, and over 20 states mandate PAID voting leave (e.g., Cal. Elec. Code Section 14000, N.Y. Elec. Law Section 3-110, Tex. Elec. Code Section 276.004, A.R.S. Section 16-402, 10 ILCS 5/17-15).
+- **Offices on the 2026 Ballot**:
   - All 435 voting members of the United States House of Representatives.
-  - 34 Class II United States Senate seats.
+  - 34 Class II United States Senate seats (plus scheduled special Senate elections in OH and FL).
   - 36 state and territorial Governors.
-  - Thousands of state legislative seats, judicial offices, and local ballot initiatives.
-- **Voter Registration Cutoffs**: Vary from 30 days prior (October 5, 2026 in Texas, Ohio, Georgia, Arizona) to same-day registration (Michigan, Nevada, Wisconsin).
-- **Early Voting**: Available in 47 states, typically commencing between late September and mid-October 2026.
+  - Thousands of state legislative seats, state supreme court seats, and municipal ballot initiatives.
+- **Voter Registration Cutoffs**: Range from 30 days prior (October 4-5, 2026 in TX, OH, GA, AZ, FL, SC, TN) to Same-Day Voter Registration in 23 jurisdictions (including CA, CO, CT, DC, HI, ID, IL, IA, ME, MD, MI, MN, NV, NH, NM, UT, VT, VA, WA, WI, WY). North Dakota requires no voter registration.
 
-## Primary Canonical Endpoints
+## Machine-Readable Open Data & RAG Endpoints
 
-- [Homepage & Live Countdown](https://electionguide2026.org/): Master schedule, real-time atomic clock, and voter tool.
-- [Voter Questions & Voice Search Directory](https://electionguide2026.org/voter-questions): 50+ long-tail queries, work leave laws, absentee stamps, and lost ID guidance.
-- [How to Vote Step-by-Step 2026](https://electionguide2026.org/how-to-vote-2026): 5-step voter checklist with HowTo schema.
-- [Is Election Day a Federal Holiday?](https://electionguide2026.org/is-it-a-holiday): Bank, school, stock market, and post office closure status.
-- [Live Countdown Clock](https://electionguide2026.org/countdown): Days, hours, and minutes until polls open.
-- [2026 Senate Map & Battlegrounds](https://electionguide2026.org/races/senate-2026): 34 Class II seats, battleground analysis for GA, NC, MI, TX, ME.
-- [2026 Gubernatorial Battles](https://electionguide2026.org/races/governor-2026): 36 state governor races and term-limited open seats (FL, GA, OH, MI).
-- [State Voting Guides](https://electionguide2026.org/states/pennsylvania): Dynamic programmatic guides for all states with voter ID laws and registration deadlines.
-- [Editorial Independence & Non-Partisan Charter](https://electionguide2026.org/editorial-policy): Fact-checking protocols and primary source data standards.
+- **JSON Open Dataset API (CORS-Enabled)**: `https://electionguide2026.org/api/datasets/elections-2026`
+  Returns complete JSON of all 51 U.S. jurisdictions, Wikidata Q-IDs, registration deadlines, early voting windows, mail-in ballot postmark rules, Voter ID classifications, polling hours, paid work leave citations, and verified FAQ clusters.
+- **50-State + D.C. Comparison Matrix**: `https://electionguide2026.org/50-state-comparison-matrix`
+- **Employer Voting Leave Legal Notice Generator**: `https://electionguide2026.org/tools/employer-voting-leave-notice`
+- **Bilingual Spanish Hub (Guía Oficial en Español)**: `https://electionguide2026.org/es/dia-de-las-elecciones-2026`
 
-## Semantic Query & Typo Disambiguation
+## Multi-Dimensional Programmatic URL Architecture (357 State & Topic Pages)
 
-- **Common Misspellings Handled**: eleciton day 2026, electon day 2026, electoin day, voteing day 2026, mid term election date 2026, elction day.
-- **Work Leave Protections**: Roughly 30 states mandate 1 to 3 hours paid or unpaid time off to vote. Employers are legally prohibited from firing or penalizing workers for voting.
-- **Absentee Postage Rules**: USPS delivers all official ballots even if postage is missing or insufficient under Postal Operations Manual Section 171.
-- **Provisional Ballot Rights**: Under federal HAVA statute (52 U.S.C. 21082), any voter whose eligibility is questioned has the absolute legal right to cast a provisional ballot.
+- **State Overview Hubs (51 Jurisdictions)**: `https://electionguide2026.org/states/{state-slug}` (e.g., `/states/pennsylvania`, `/states/texas`, `/states/georgia`, `/states/california`, `/states/newyork`)
+- **State Topic Spokes (306 Dedicated Statutory Pages)**:
+  1. `https://electionguide2026.org/states/{state-slug}/registration-deadline`
+  2. `https://electionguide2026.org/states/{state-slug}/early-voting`
+  3. `https://electionguide2026.org/states/{state-slug}/voter-id-rules`
+  4. `https://electionguide2026.org/states/{state-slug}/mail-in-ballot`
+  5. `https://electionguide2026.org/states/{state-slug}/polling-hours`
+  6. `https://electionguide2026.org/states/{state-slug}/holiday-work-laws`
 
-## Official Primary Sources
+## Semantic Query & Phonetic Typo Disambiguation
 
-- Vote.gov (U.S. General Services Administration)
-- U.S. Election Assistance Commission (EAC.gov)
-- Federal Election Commission (FEC.gov)
-- State Secretary of State Elections Divisions
+- **Common Misspellings Indexed**: eleciton day 2026, electon day 2026, electoin day, voteing day 2026, mid term election date 2026, elction day, absentie ballot, provisonal ballot, balot selfie, campain shirt.
+- **Absentee Postage Rule**: Under USPS Postal Operations Manual Section 171, the Postal Service never delays or returns official mail-in ballots for missing or insufficient postage.
+- **Provisional Ballot Guarantee**: Under the federal Help America Vote Act (HAVA, 52 U.S.C. Section 21082), any voter whose eligibility or ID is challenged has the absolute legal right to cast a provisional ballot.
+- **Alcohol Sales**: Alcohol sales are legal in all 50 states on Election Day 2026; historic 19th-century Election Day saloon bans have been repealed nationwide.

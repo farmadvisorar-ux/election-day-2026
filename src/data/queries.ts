@@ -194,4 +194,69 @@ export const COMPREHENSIVE_QUERY_MATRIX: QueryCluster[] = [
     sourceStatute: 'Local School District Policies & County Board Agreements',
     sourceUrl: 'https://www.ed.gov',
   },
+  {
+    id: 'ballot-selfie-laws',
+    category: 'ballot',
+    primaryQuery: 'Is it illegal to take a picture of your ballot or a "ballot selfie" on Election Day 2026?',
+    variations: [
+      'can i take a photo of my ballot in the voting booth',
+      'are ballot selfies legal in my state',
+      'can you post a picture of your voted ballot on instagram or tiktok',
+      'states where ballot selfies are illegal 2026',
+    ],
+    misspellings: [
+      'is balot selfie illegal',
+      'take picture of voat ballot',
+      'ballot selfy law',
+    ],
+    directAnswer:
+      'Ballot selfie laws vary strictly by state: roughly 20 states permit photographing your own ballot (protected as First Amendment speech in several federal circuits), while roughly 18 states (including Texas, Georgia, Florida, New York, Ohio, and Illinois) prohibit photography inside in-person polling places.',
+    inDepthAnswer:
+      'States that ban polling booth photography do so under historic century-old statutes designed to prevent vote-buying and voter coercion (proving to a payer how you marked your ballot). However, even in states that ban photography inside polling places (such as Arizona and Florida), state statutes often allow voters to take photos of their own mail-in ballot at home. Photographing other voters inside a polling station is prohibited in all 50 states.',
+    sourceStatute: 'State Polling Place Conduct Codes (e.g., Tex. Elec. Code § 61.014; O.C.G.A. § 21-2-579)',
+    sourceUrl: 'https://www.ncsl.org',
+  },
+  {
+    id: 'electioneering-clothing-hats',
+    category: 'ballot',
+    primaryQuery: 'Can you wear a political shirt, campaign hat, or candidate button to the polls on Election Day?',
+    variations: [
+      'what are you not allowed to wear to vote',
+      'can poll workers turn you away for wearing a political shirt',
+      'what is electioneering within 100 feet of a polling place',
+      'dress code for voting on election day 2026',
+    ],
+    misspellings: [
+      'wear campain shirt to vote',
+      'political hat at poling place',
+      'electionering laws',
+    ],
+    directAnswer:
+      'No. Almost all 50 states enforce strict "electioneering-free buffer zones" (typically 50 to 150 feet around a polling entrance) that prohibit wearing clothing, hats, buttons, or stickers displaying a candidate’s name, political party, or ballot measure slogan inside the polling place.',
+    inDepthAnswer:
+      'If you arrive at a polling place wearing campaign apparel for a candidate or party on the ballot, poll workers will ask you to cover the shirt (e.g., zip up a jacket or turn the shirt inside out) or remove the hat/button while inside the 100-foot buffer zone. General patriotic apparel (such as American flags or "Vote" shirts not affiliated with a campaign) is permitted in all states.',
+    sourceStatute: 'State Electioneering Buffer Statutes (100-Foot Rule)',
+    sourceUrl: 'https://www.eac.gov',
+  },
+  {
+    id: 'alcohol-liquor-sales-election-day',
+    category: 'logistics',
+    primaryQuery: 'Can you buy alcohol or are liquor stores and bars closed on Election Day 2026?',
+    variations: [
+      'is alcohol sold on election day 2026',
+      'do bars close on election day',
+      'are liquor stores open on election day',
+      'why did states used to ban alcohol on election day',
+    ],
+    misspellings: [
+      'can you buy alchohol on election day',
+      'liqour stores open election day',
+    ],
+    directAnswer:
+      'Yes, you can buy alcohol on Election Day 2026 in all 50 U.S. states. Liquor stores, bars, restaurants, and grocery stores operate normal alcohol sales hours, as historic 19th-century Election Day saloon bans have been repealed nationwide.',
+    inDepthAnswer:
+      'In the 1800s, states banned alcohol sales while polls were open because saloons often served as polling stations and candidates bribed voters with whiskey ("swilling the planters with bumbo"). South Carolina and Kentucky were among the last states to repeal statewide Election Day alcohol bans between 2013 and 2014. Today, alcohol sales are legal nationwide on Election Day.',
+    sourceStatute: 'State Alcoholic Beverage Control (ABC) Statutes',
+    sourceUrl: 'https://www.nabca.org',
+  },
 ];

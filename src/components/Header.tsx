@@ -17,12 +17,18 @@ export const Header: React.FC = () => {
             <span>Independent Non-Partisan Civic Guide • Tuesday, November 3, 2026 Midterm Elections</span>
           </div>
           <div className="hidden md:flex items-center gap-4 text-slate-300">
+            <Link href="/es/dia-de-las-elecciones-2026" className="text-amber-300 hover:text-white font-bold">
+              🇺🇸/🇪🇸 Español
+            </Link>
+            <span>•</span>
+            <Link href="/50-state-comparison-matrix" className="hover:text-white font-semibold">
+              50-State Matrix
+            </Link>
+            <span>•</span>
             <Link href="/editorial-policy" className="hover:text-white flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
               <span>Editorial Policy</span>
             </Link>
-            <span>•</span>
-            <span className="text-amber-300 font-bold">Class II Senate & 435 House Seats</span>
           </div>
         </div>
       </div>
@@ -81,18 +87,18 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link
-              href="/races/senate-2026"
+              href="/tools/employer-voting-leave-notice"
               className="hover:text-blue-600 transition-colors"
             >
-              <span>2026 Senate</span>
+              <span>Work Leave Law</span>
             </Link>
 
             <Link
-              href="/states/pennsylvania"
+              href="/50-state-comparison-matrix"
               className="hover:text-blue-600 transition-colors flex items-center gap-1"
             >
               <MapPin className="w-4 h-4 text-slate-500" />
-              <span>State Guides</span>
+              <span>50-State Matrix</span>
             </Link>
           </nav>
 

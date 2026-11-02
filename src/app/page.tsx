@@ -293,6 +293,74 @@ export default function HomePage() {
         <AffiliatePartners />
       </section>
 
+      {/* Presidential-Grade Civic Utilities & Open Data Command Bar */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Link
+            href="/tools/employer-voting-leave-notice"
+            className="p-5 rounded-2xl bg-gradient-to-br from-indigo-900 to-slate-900 text-white border border-indigo-700/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                Interactive Legal Tool
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                Paid Time Off to Vote HR Notice Generator
+              </h3>
+              <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                Generate a legally cited notice for your boss quoting your state's exact voting leave statute (e.g., TX Elec. Code § 276.004, Cal. Elec. Code § 14000).
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Launch Generator</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/50-state-comparison-matrix"
+            className="p-5 rounded-2xl bg-gradient-to-br from-blue-900 to-slate-900 text-white border border-blue-700/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                Schema.org/Dataset Indexed
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                50-State + D.C. Statutory Comparison Matrix
+              </h3>
+              <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                Filter all 51 jurisdictions by Same-Day Registration, Strict Photo ID, Paid Voting Leave, Poll Hours, and State Holidays.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
+              <span>Explore 51-Jurisdiction Matrix</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/es/dia-de-las-elecciones-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 text-white border border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-300">
+                🇺🇸 / 🇪🇸 Recursos Bilingües
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                Guía Oficial en Español: Día de las Elecciones 2026
+              </h3>
+              <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
+                Fechas límite de registro, requisitos de identificación con foto, horarios de las urnas y derechos laborales en español.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-blue-300 flex items-center gap-1">
+              <span>Ver Guía en Español</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+        </div>
+      </section>
+
       {/* State Directory Cards */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
