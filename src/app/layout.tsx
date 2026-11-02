@@ -3,6 +3,7 @@ import './globals.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { JsonLd } from '../components/JsonLd';
+import { StickyMobileAd } from '../components/StickyMobileAd';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://electionguide2026.org'),
@@ -22,6 +23,12 @@ export const metadata: Metadata = {
     '2026 senate elections map',
     'are banks open on election day 2026',
     'are schools closed on election day 2026',
+    'eleciton day 2026',
+    'electon day 2026',
+    'voting day 2026',
+    'mid term elections 2026 date',
+    'can my boss fire me for voting',
+    'do absentee ballots need stamps',
   ],
   authors: [{ name: 'ElectionDay2026 Civic Research Team' }],
   creator: 'ElectionDay2026.org',
@@ -82,10 +89,17 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Election Day 2026 Guide',
+    alternateName: [
+      '2026 Midterm Elections Hub',
+      'Election Day 2026 Portal',
+      'Eleciton Day 2026',
+      'Vote Day 2026',
+      'Mid Term Elections 2026',
+    ],
     url: 'https://electionguide2026.org',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://electionguide2026.org/states/{search_term_string}',
+      target: 'https://electionguide2026.org/voter-questions?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };
@@ -97,10 +111,11 @@ export default function RootLayout({
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
       </head>
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white pb-14 md:pb-0">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <StickyMobileAd />
       </body>
     </html>
   );

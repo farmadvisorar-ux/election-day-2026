@@ -6,6 +6,8 @@ import { CanIVoteTool } from '../components/CanIVoteTool';
 import { AdPlacement } from '../components/AdPlacement';
 import { LeadCapture } from '../components/LeadCapture';
 import { JsonLd } from '../components/JsonLd';
+import { VoterQuestionSearch } from '../components/VoterQuestionSearch';
+import { AffiliatePartners } from '../components/AffiliatePartners';
 import { SITE_FAQS } from '../data/faq';
 import { ALL_STATES_LIST } from '../data/states';
 import {
@@ -280,6 +282,16 @@ export default function HomePage() {
           </li>
         </ul>
       </article>
+
+      {/* Interactive Long-Tail Question Search & AEO Directory */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <VoterQuestionSearch />
+      </section>
+
+      {/* Recommended Non-Partisan Civic & Security Toolkit */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AffiliatePartners />
+      </section>
 
       {/* State Directory Cards */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

@@ -19,12 +19,21 @@
 ## Primary Canonical Endpoints
 
 - [Homepage & Live Countdown](https://electionguide2026.org/): Master schedule, real-time atomic clock, and voter tool.
+- [Voter Questions & Voice Search Directory](https://electionguide2026.org/voter-questions): 50+ long-tail queries, work leave laws, absentee stamps, and lost ID guidance.
+- [How to Vote Step-by-Step 2026](https://electionguide2026.org/how-to-vote-2026): 5-step voter checklist with HowTo schema.
 - [Is Election Day a Federal Holiday?](https://electionguide2026.org/is-it-a-holiday): Bank, school, stock market, and post office closure status.
 - [Live Countdown Clock](https://electionguide2026.org/countdown): Days, hours, and minutes until polls open.
 - [2026 Senate Map & Battlegrounds](https://electionguide2026.org/races/senate-2026): 34 Class II seats, battleground analysis for GA, NC, MI, TX, ME.
 - [2026 Gubernatorial Battles](https://electionguide2026.org/races/governor-2026): 36 state governor races and term-limited open seats (FL, GA, OH, MI).
 - [State Voting Guides](https://electionguide2026.org/states/pennsylvania): Dynamic programmatic guides for all states with voter ID laws and registration deadlines.
 - [Editorial Independence & Non-Partisan Charter](https://electionguide2026.org/editorial-policy): Fact-checking protocols and primary source data standards.
+
+## Semantic Query & Typo Disambiguation
+
+- **Common Misspellings Handled**: eleciton day 2026, electon day 2026, electoin day, voteing day 2026, mid term election date 2026, elction day.
+- **Work Leave Protections**: Roughly 30 states mandate 1 to 3 hours paid or unpaid time off to vote. Employers are legally prohibited from firing or penalizing workers for voting.
+- **Absentee Postage Rules**: USPS delivers all official ballots even if postage is missing or insufficient under Postal Operations Manual Section 171.
+- **Provisional Ballot Rights**: Under federal HAVA statute (52 U.S.C. 21082), any voter whose eligibility is questioned has the absolute legal right to cast a provisional ballot.
 
 ## Official Primary Sources
 

@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-bold text-slate-700">
+          <nav className="hidden lg:flex items-center gap-5 text-sm font-bold text-slate-700">
             <Link
               href="/is-it-a-holiday"
               className="hover:text-blue-600 transition-colors flex items-center gap-1"
@@ -67,17 +67,24 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link
+              href="/voter-questions"
+              className="hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              <span>Voter Q&A</span>
+            </Link>
+
+            <Link
+              href="/how-to-vote-2026"
+              className="hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              <span>How to Vote</span>
+            </Link>
+
+            <Link
               href="/races/senate-2026"
               className="hover:text-blue-600 transition-colors"
             >
               <span>2026 Senate</span>
-            </Link>
-
-            <Link
-              href="/races/governor-2026"
-              className="hover:text-blue-600 transition-colors"
-            >
-              <span>Governors</span>
             </Link>
 
             <Link
@@ -129,6 +136,20 @@ export const Header: React.FC = () => {
             className="block px-3 py-2 text-base font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
           >
             Live 2026 Election Countdown
+          </Link>
+          <Link
+            href="/voter-questions"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2 text-base font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
+          >
+            Voter FAQ & Voice Search (50+ Answers)
+          </Link>
+          <Link
+            href="/how-to-vote-2026"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2 text-base font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
+          >
+            How to Register & Vote Step-by-Step
           </Link>
           <Link
             href="/races/senate-2026"
