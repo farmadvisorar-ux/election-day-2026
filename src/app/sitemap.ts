@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { STATES_DATA, TOPIC_SPOKES } from '../data/states';
+import { COUNTIES_BY_STATE } from '../data/counties';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://electionguide2026.org';
@@ -11,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/counties`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/50-state-comparison-matrix`,
@@ -95,5 +102,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return [...staticRoutes, ...stateHubRoutes, ...stateTopicSpokeRoutes];
+  // 3,143 County-by-County Election Jurisdiction Pages (All 50 States + D.C.)
+  const countyRoutes: MetadataRoute.Sitemap = [];
+  for (const [stateSlug, counties] of Object.entries(COUNTIES_BY_STATE)) {
+    for (const county of counties) {
+      countyRoutes.push({
+        url: `${baseUrl}/states/${stateSlug}/counties/${county.slug}`,
+        lastModified: now,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      });
+    }
+  }
+
+  return [...staticRoutes, ...stateHubRoutes, ...stateTopicSpokeRoutes, ...countyRoutes];
 }

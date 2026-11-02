@@ -295,7 +295,28 @@ export default function HomePage() {
 
       {/* Presidential-Grade Civic Utilities & Open Data Command Bar */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            href="/counties"
+            className="p-5 rounded-2xl bg-gradient-to-br from-blue-700 to-indigo-950 text-white border border-blue-500/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                3,143 Local FIPS Boards
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                All 3,143 U.S. Counties Election Directory
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Search every county, parish, borough & independent city across all 50 states for local Board of Elections portals and polling hours.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Browse 3,143 Counties</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
           <Link
             href="/tools/employer-voting-leave-notice"
             className="p-5 rounded-2xl bg-gradient-to-br from-indigo-900 to-slate-900 text-white border border-indigo-700/50 hover:shadow-lg transition-all flex flex-col justify-between"
@@ -308,7 +329,7 @@ export default function HomePage() {
                 Paid Time Off to Vote HR Notice Generator
               </h3>
               <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
-                Generate a legally cited notice for your boss quoting your state's exact voting leave statute (e.g., TX Elec. Code § 276.004, Cal. Elec. Code § 14000).
+                Generate a legally cited notice for your boss quoting your state's exact voting leave statute (e.g., TX Elec. Code § 276.004).
               </p>
             </div>
             <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
@@ -326,14 +347,14 @@ export default function HomePage() {
                 Schema.org/Dataset Indexed
               </span>
               <h3 className="text-lg font-black mt-1">
-                50-State + D.C. Statutory Comparison Matrix
+                50-State + D.C. Statutory Matrix
               </h3>
               <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
                 Filter all 51 jurisdictions by Same-Day Registration, Strict Photo ID, Paid Voting Leave, Poll Hours, and State Holidays.
               </p>
             </div>
             <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
-              <span>Explore 51-Jurisdiction Matrix</span>
+              <span>Explore 51-State Matrix</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </Link>
@@ -347,7 +368,7 @@ export default function HomePage() {
                 🇺🇸 / 🇪🇸 Recursos Bilingües
               </span>
               <h3 className="text-lg font-black mt-1">
-                Guía Oficial en Español: Día de las Elecciones 2026
+                Guía Oficial en Español 2026
               </h3>
               <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">
                 Fechas límite de registro, requisitos de identificación con foto, horarios de las urnas y derechos laborales en español.

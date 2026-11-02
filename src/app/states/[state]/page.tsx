@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { STATES_DATA, TOPIC_SPOKES, ALL_STATES_LIST, StateElectionData } from '../../../data/states';
+import { COUNTIES_BY_STATE, getCountyElectionAuthorityTitle } from '../../../data/counties';
 import { DirectAnswerBox } from '../../../components/DirectAnswerBox';
 import { AdPlacement } from '../../../components/AdPlacement';
 import { AffiliatePartners } from '../../../components/AffiliatePartners';
@@ -21,6 +22,8 @@ import {
   Briefcase,
   Camera,
   ArrowRight,
+  MapPin,
+  Building2,
 } from 'lucide-react';
 
 interface Props {
@@ -68,6 +71,11 @@ export default async function StatePage({ params }: Props) {
   if (!state) {
     notFound();
   }
+
+  const stateCounties = COUNTIES_BY_STATE[state.slug] || [];
+  const sampleCountyAuthority = stateCounties.length > 0
+    ? getCountyElectionAuthorityTitle(state.slug, stateCounties[0].name)
+    : `${state.name} County Board of Elections`;
 
   const graphSchema = {
     '@context': 'https://schema.org',
@@ -173,6 +181,12 @@ export default async function StatePage({ params }: Props) {
             Deep-Dive {state.name} ({state.postalCode}) Statutory Guides:
           </div>
           <div className="flex items-center gap-2 text-xs font-bold whitespace-nowrap">
+            <a
+              href="#counties"
+              className="px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 border border-blue-600 transition-colors"
+            >
+              📍 All {stateCounties.length} {state.postalCode} Counties ↓
+            </a>
             {TOPIC_SPOKES.map((spoke) => (
               <Link
                 key={spoke.topicSlug}
@@ -492,6 +506,65 @@ export default async function StatePage({ params }: Props) {
 
         {/* In-Article Ad */}
         <AdPlacement format="in-article" slotId={`state-${state.postalCode}-mid-ad`} />
+
+        {/* Complete County-by-County SEO Directory for this State */}
+        {stateCounties.length > 0 && (
+          <section
+            id="counties"
+            className="my-10 bg-white p-6 sm:p-8 rounded-2xl border-2 border-slate-200 shadow-xs"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700">
+                <MapPin className="w-4 h-4 text-blue-600" />
+                <span>County-by-County Election Jurisdiction Directory</span>
+              </div>
+              <span className="px-2.5 py-1 bg-blue-50 text-blue-800 border border-blue-200 rounded-md text-xs font-bold">
+                {stateCounties.length} Official {state.postalCode} Jurisdictions Indexed
+              </span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-2">
+              {state.name} Election Day 2026 by County ({stateCounties.length} Local Boards)
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+              Select your county, parish, borough, or independent city in {state.name} below to view localized November 3, 2026 polling hours ({state.pollingHours}), early voting centers ({state.earlyVoting.starts} – {state.earlyVoting.ends}), ballot drop-box protocols, and official local election authority records (e.g., <strong>{sampleCountyAuthority}</strong>).
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 max-h-[520px] overflow-y-auto pr-1">
+              {stateCounties.map((c) => (
+                <Link
+                  key={c.fips}
+                  href={`/states/${state.slug}/counties/${c.slug}`}
+                  className="group p-3 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-blue-600 hover:border-blue-600 transition-all flex items-center justify-between gap-2"
+                >
+                  <div className="min-w-0">
+                    <div className="text-xs font-bold text-slate-900 group-hover:text-white truncate">
+                      {c.name}
+                    </div>
+                    <div className="text-[10px] text-slate-500 group-hover:text-blue-100 flex items-center gap-1 mt-0.5">
+                      <Building2 className="w-3 h-3 shrink-0" />
+                      <span className="font-mono">FIPS {c.fips}</span>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white shrink-0" />
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-5 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <span className="text-slate-500">
+                All {stateCounties.length} {state.name} counties follow state statutory registration cutoff: <strong>{state.registrationDeadline.online}</strong>.
+              </span>
+              <Link
+                href="/counties"
+                className="font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+              >
+                <span>Search All 3,143 U.S. Counties Nationwide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </section>
+        )}
 
         {/* Affiliate Toolkit */}
         <AffiliatePartners />

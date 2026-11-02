@@ -52,6 +52,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/counties" className="text-blue-400 hover:text-white font-bold transition-colors">
+                  All 3,143 U.S. Counties Directory
+                </Link>
+              </li>
+              <li>
+                <Link href="/50-state-comparison-matrix" className="hover:text-white transition-colors">
+                  50-State Master Comparison Matrix
+                </Link>
+              </li>
+              <li>
                 <Link href="/editorial-policy" className="hover:text-white transition-colors">
                   Editorial & Fact-Checking Policy
                 </Link>

@@ -24,8 +24,10 @@
 - **Employer Voting Leave Legal Notice Generator**: `https://electionguide2026.org/tools/employer-voting-leave-notice`
 - **Bilingual Spanish Hub (Guía Oficial en Español)**: `https://electionguide2026.org/es/dia-de-las-elecciones-2026`
 
-## Multi-Dimensional Programmatic URL Architecture (357 State & Topic Pages)
+## Multi-Dimensional Programmatic URL Architecture (3,512 State, County & Topic Pages)
 
+- **National 3,143-County Election Directory & FIPS Search**: `https://electionguide2026.org/counties`
+- **County-by-County Election Guides (All 3,143 U.S. Counties, Parishes, Boroughs & Independent Cities)**: `https://electionguide2026.org/states/{state-slug}/counties/{county-slug}` (e.g., `/states/texas/counties/harris-county`, `/states/arizona/counties/maricopa-county`, `/states/pennsylvania/counties/allegheny-county`, `/states/california/counties/los-angeles-county`, `/states/florida/counties/miami-dade-county`, `/states/illinois/counties/cook-county`)
 - **State Overview Hubs (51 Jurisdictions)**: `https://electionguide2026.org/states/{state-slug}` (e.g., `/states/pennsylvania`, `/states/texas`, `/states/georgia`, `/states/california`, `/states/newyork`)
 - **State Topic Spokes (306 Dedicated Statutory Pages)**:
   1. `https://electionguide2026.org/states/{state-slug}/registration-deadline`

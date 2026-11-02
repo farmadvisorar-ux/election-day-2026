@@ -100,6 +100,13 @@ export const Header: React.FC = () => {
               <MapPin className="w-4 h-4 text-slate-500" />
               <span>50-State Matrix</span>
             </Link>
+
+            <Link
+              href="/counties"
+              className="hover:text-blue-600 transition-colors flex items-center gap-1 text-blue-700"
+            >
+              <span>3,143 Counties</span>
+            </Link>
           </nav>
 
           {/* Right Action CTA */}
