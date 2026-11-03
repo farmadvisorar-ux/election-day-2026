@@ -52,6 +52,21 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/ask" className="text-amber-300 hover:text-white font-bold transition-colors">
+                  Ask the 2026 Statutory Civic Answer Engine
+                </Link>
+              </li>
+              <li>
+                <Link href="/my-voting-plan" className="text-emerald-400 hover:text-white font-bold transition-colors">
+                  My 2026 Personal Voting Plan &amp; ID Checker
+                </Link>
+              </li>
+              <li>
+                <Link href="/news-and-pulse-2026" className="text-blue-300 hover:text-white font-bold transition-colors">
+                  2026 Midterm Pulse, Balance of Power &amp; Propositions
+                </Link>
+              </li>
+              <li>
                 <Link href="/counties" className="text-blue-400 hover:text-white font-bold transition-colors">
                   All 3,143 U.S. Counties Directory
                 </Link>

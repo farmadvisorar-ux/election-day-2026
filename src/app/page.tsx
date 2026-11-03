@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { CountdownTimer } from '../components/CountdownTimer';
 import { DirectAnswerBox } from '../components/DirectAnswerBox';
 import { CanIVoteTool } from '../components/CanIVoteTool';
+import { CivicAnswerEngine } from '../components/CivicAnswerEngine';
 import { AdPlacement } from '../components/AdPlacement';
 import { LeadCapture } from '../components/LeadCapture';
 import { JsonLd } from '../components/JsonLd';
@@ -203,6 +204,11 @@ export default function HomePage() {
       {/* Interactive Tool Section */}
       <section id="voter-tool" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 scroll-mt-20">
         <CanIVoteTool />
+      </section>
+
+      {/* Zero-Hallucination Civic Answer Engine Section */}
+      <section id="ask-engine" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 scroll-mt-20">
+        <CivicAnswerEngine />
       </section>
 
       {/* Ad Unit 2: In-Article Placement */}

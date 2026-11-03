@@ -102,6 +102,27 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link
+              href="/ask"
+              className="hover:text-blue-600 transition-colors flex items-center gap-1 text-amber-600 font-black"
+            >
+              <span>Ask AI</span>
+            </Link>
+
+            <Link
+              href="/my-voting-plan"
+              className="hover:text-emerald-700 transition-colors flex items-center gap-1 text-emerald-700"
+            >
+              <span>My Plan</span>
+            </Link>
+
+            <Link
+              href="/news-and-pulse-2026"
+              className="hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              <span>2026 Pulse</span>
+            </Link>
+
+            <Link
               href="/counties"
               className="hover:text-blue-600 transition-colors flex items-center gap-1 text-blue-700"
             >
