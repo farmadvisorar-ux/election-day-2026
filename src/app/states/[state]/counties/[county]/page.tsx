@@ -76,6 +76,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...county.topCities.map((city) => `${city.toLowerCase()} ${state.postalCode.toLowerCase()} sample ballot 2026`),
       `${county.zipRange} sample ballot 2026`,
       `${county.name.toLowerCase()} early voting 2026`,
+      `where to vote ${county.name.toLowerCase()}`,
+      `what time polls close ${county.name.toLowerCase()}`,
+      `need id to vote ${county.name.toLowerCase()}`,
+      `${county.countySeat.toLowerCase()} sample balot 2026`,
+      `${county.name.toLowerCase()} eleciton day 2026`,
       `${authorityTitle.toLowerCase()}`,
       ...county.congressionalDistricts.map((cd) => `${cd.toLowerCase()} election 2026`),
       `where to vote in ${county.countySeat.toLowerCase()} ${state.name.toLowerCase()}`,
@@ -689,6 +694,31 @@ export default async function CountyElectionPage({ params }: Props) {
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{f.a}</p>
               </div>
             ))}
+          </div>
+
+          {/* County Shorthand, Voice Search & Typo Quick Resolver */}
+          <div className="mt-6 bg-slate-50 rounded-2xl p-5 border border-slate-200">
+            <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider mb-3">
+              Common Voice Search, Shorthand & Local Queries in {county.name} ({county.countySeat}, {state.postalCode})
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="p-3 bg-white rounded-xl border border-slate-200">
+                <div className="font-mono font-bold text-blue-700 mb-1">
+                  &ldquo;where to vote {county.name.toLowerCase()}&rdquo; • &ldquo;{county.countySeat.toLowerCase()} sample balot 2026&rdquo;
+                </div>
+                <p className="text-slate-600">
+                  Administered by the <strong>{authorityTitle}</strong> covering {county.topCities.join(', ')} (ZIPs {county.zipRange}).
+                </p>
+              </div>
+              <div className="p-3 bg-white rounded-xl border border-slate-200">
+                <div className="font-mono font-bold text-blue-700 mb-1">
+                  &ldquo;what time polls close {county.name.toLowerCase()}&rdquo; • &ldquo;{county.name.toLowerCase()} eleciton hours&rdquo;
+                </div>
+                <p className="text-slate-600">
+                  Nov 3, 2026 hours: <strong>{effectivePollingHours}</strong> ({effectiveTimezone}). Stay in line by closing time to vote!
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

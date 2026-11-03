@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { STATES_DATA, TOPIC_SPOKES } from '../data/states';
 import { COUNTIES_BY_STATE } from '../data/counties';
 import { ALL_DISTRICTS_LIST } from '../data/districts';
+import { COMPREHENSIVE_QUERY_MATRIX } from '../data/queries';
 import { SITE_URL } from '../lib/siteConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -119,6 +120,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // 46 Dedicated Long-Tail, Shorthand & Ungrammatical Voter Question Pages
+  const questionRoutes: MetadataRoute.Sitemap = COMPREHENSIVE_QUERY_MATRIX.map((q) => ({
+    url: `${baseUrl}/voter-questions/${q.id}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }));
+
   // 51 State & DC Hub Pages
   const stateHubRoutes: MetadataRoute.Sitemap = Object.keys(STATES_DATA).map((slug) => ({
     url: `${baseUrl}/states/${slug}`,
@@ -163,6 +172,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
+    ...questionRoutes,
     ...stateHubRoutes,
     ...stateTopicSpokeRoutes,
     ...districtRoutes,

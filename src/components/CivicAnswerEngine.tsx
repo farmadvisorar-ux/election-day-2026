@@ -357,19 +357,21 @@ export function CivicAnswerEngine() {
                 Verified Statutory Answer • {analysis.bestFaq.sourceStatute}
               </span>
               <Link
-                href="/voter-questions"
+                href={`/voter-questions/${analysis.bestFaq.id}`}
                 className="text-xs font-bold text-blue-600 hover:underline"
               >
-                Browse All 50+ Legal Q&amp;As →
+                Open Dedicated Statutory Guide →
               </Link>
             </div>
             <h3 className="text-base font-black text-slate-900 mb-1">
-              {analysis.bestFaq.primaryQuery}
+              <Link href={`/voter-questions/${analysis.bestFaq.id}`} className="hover:text-blue-700">
+                {analysis.bestFaq.primaryQuery}
+              </Link>
             </h3>
             <p className="text-xs sm:text-sm font-semibold text-slate-800 mb-1.5">
               {analysis.bestFaq.directAnswer}
             </p>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed whitespace-pre-line">
               {analysis.bestFaq.inDepthAnswer}
             </p>
           </div>

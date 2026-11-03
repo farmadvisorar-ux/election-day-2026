@@ -55,11 +55,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: [
       `${state.name} election day 2026`,
       `when is election day 2026 in ${state.name}`,
+      `when election day 2026 ${state.name.toLowerCase()}`,
+      `what time polls open close ${state.name.toLowerCase()}`,
       `${state.name} voter registration deadline 2026`,
+      `last day register vote ${state.name.toLowerCase()}`,
       `${state.name} early voting dates 2026`,
       `${state.name} voter id requirements`,
+      `need id to vote ${state.name.toLowerCase()}`,
+      `no id can i vote ${state.name.toLowerCase()}`,
       `${state.name} mail in ballot deadline 2026`,
       `does ${state.name} give paid time off to vote`,
+      `${state.name.toLowerCase()} eleciton day 2026`,
+      `${state.name.toLowerCase()} sample balot 2026`,
     ],
   };
 }
@@ -595,6 +602,53 @@ export default async function StatePage({ params }: Props) {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Localized Shorthand, Voice Search & Typo Matrix */}
+          <div className="mt-6 bg-slate-900 text-white rounded-2xl p-6 border border-slate-800">
+            <h3 className="text-base font-black text-amber-300 mb-2">
+              Quick Voice Search, Shorthand & Common Query Index for {state.name} ({state.postalCode})
+            </h3>
+            <p className="text-xs text-slate-300 mb-4">
+              Direct statutory answers for common mobile, voice, and shorthand voter searches in {state.name}:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div className="font-mono text-amber-300 font-bold mb-1">
+                  &ldquo;when election day 2026 {state.name.toLowerCase()}&rdquo; / &ldquo;what time polls close {state.postalCode.toLowerCase()}&rdquo;
+                </div>
+                <p className="text-slate-200">
+                  Tuesday, Nov 3, 2026 • Polls open <strong>{state.pollingHours}</strong> ({state.timezone}). Stay in line by closing time to vote.
+                </p>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div className="font-mono text-amber-300 font-bold mb-1">
+                  &ldquo;need id to vote {state.name.toLowerCase()}&rdquo; / &ldquo;forgot id can i vote {state.postalCode.toLowerCase()}&rdquo;
+                </div>
+                <p className="text-slate-200">
+                  Rule: <strong>{state.voterId.type}</strong>. Without ID, you have the federal right to cast a HAVA Provisional Ballot (52 U.S.C. § 21082).
+                </p>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div className="font-mono text-amber-300 font-bold mb-1">
+                  &ldquo;last day register vote {state.name.toLowerCase()}&rdquo; / &ldquo;moved didnt change address {state.postalCode.toLowerCase()}&rdquo;
+                </div>
+                <p className="text-slate-200">
+                  Online cutoff: <strong>{state.registrationDeadline.online}</strong>.{' '}
+                  {state.registrationDeadline.sameDayRegistration
+                    ? `${state.name} ALSO offers Same-Day Registration at the polls on Nov 3!`
+                    : `Moved within the same county? Update your address under NVRA fail-safe rules.`}
+                </p>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div className="font-mono text-amber-300 font-bold mb-1">
+                  &ldquo;boss pay me to vote {state.name.toLowerCase()}&rdquo; / &ldquo;time off work vote {state.postalCode.toLowerCase()}&rdquo;
+                </div>
+                <p className="text-slate-200">
+                  Statute: <strong>{state.workLeaveLaw.statuteCitation}</strong> ({state.workLeaveLaw.hoursAllowed}).
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

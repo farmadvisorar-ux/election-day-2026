@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { COMPREHENSIVE_QUERY_MATRIX, QueryCluster } from '../data/queries';
-import { Search, HelpCircle, CheckCircle2, ShieldCheck, Tag, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+import { COMPREHENSIVE_QUERY_MATRIX } from '../data/queries';
+import { Search, HelpCircle, CheckCircle2, ShieldCheck, Tag, Sparkles, ArrowRight } from 'lucide-react';
 
 export const VoterQuestionSearch: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -10,26 +11,38 @@ export const VoterQuestionSearch: React.FC = () => {
 
   const filteredClusters = useMemo(() => {
     const term = searchTerm.toLowerCase().trim();
+    const tokens = term
+      .replace(/[^\w\s]/g, ' ')
+      .split(/\s+/)
+      .filter((w) => w.length > 1 && !['the', 'and', 'for', 'can', 'how', 'what', 'when', 'where', 'who', 'why', 'are', 'does', 'did'].includes(w));
 
     return COMPREHENSIVE_QUERY_MATRIX.filter((item) => {
-      // Category filter
       if (selectedCategory !== 'all' && item.category !== selectedCategory) {
         return false;
       }
 
       if (!term) return true;
 
-      // Match primary query
-      if (item.primaryQuery.toLowerCase().includes(term)) return true;
+      const fullCorpus = [
+        item.primaryQuery,
+        ...item.variations,
+        ...item.misspellings,
+        item.directAnswer,
+        item.inDepthAnswer,
+      ]
+        .join(' ')
+        .toLowerCase();
 
-      // Match variations
-      if (item.variations.some((v) => v.toLowerCase().includes(term))) return true;
+      // Direct substring match
+      if (fullCorpus.includes(term)) return true;
 
-      // Match common misspellings & typos (AEO phonetic matching)
-      if (item.misspellings.some((m) => m.toLowerCase().includes(term))) return true;
-
-      // Match direct answer text
-      if (item.directAnswer.toLowerCase().includes(term)) return true;
+      // Multi-word ungrammatical / caveman token match (if >= 65% of meaningful words match)
+      if (tokens.length > 0) {
+        const matchedCount = tokens.filter((tok) => fullCorpus.includes(tok)).length;
+        if (matchedCount >= Math.max(1, Math.ceil(tokens.length * 0.65))) {
+          return true;
+        }
+      }
 
       return false;
     });
@@ -39,14 +52,14 @@ export const VoterQuestionSearch: React.FC = () => {
     <div className="bg-white rounded-2xl border border-slate-200 shadow-md p-6 md:p-8">
       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
         <Sparkles className="w-4 h-4 text-amber-500" />
-        <span>AEO Long-Tail Semantic Query Resolver</span>
+        <span>AEO Long-Tail, Shorthand & Phonetic Query Resolver</span>
       </div>
 
       <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-        Instant Voter Questions & Voice Search Directory
+        Instant Voter Questions, Shorthand & Voice Search Directory
       </h3>
       <p className="text-sm text-slate-600 mt-1 mb-6">
-        Search any question regarding Election Day 2026. Designed with typo tolerance and voice-search semantic matching.
+        Search any question regarding Election Day 2026 in plain English, quick keyword shorthand (e.g., <em>&ldquo;no id can vote&rdquo;</em>, <em>&ldquo;moved where vote&rdquo;</em>), or common misspellings.
       </p>
 
       {/* Search Input Bar */}
@@ -58,13 +71,13 @@ export const VoterQuestionSearch: React.FC = () => {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Ask anything (e.g. 'can I leave work to vote?', 'bank open?', 'do I need a stamp?')..."
-          className="w-full pl-10 pr-4 py-3.5 bg-slate-50 border border-slate-300 rounded-xl text-base text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition shadow-xs"
+          placeholder="Ask anything in any way (e.g. 'moved didnt change address', 'no id can i vote', 'boss pay me to vote')..."
+          className="w-full pl-10 pr-16 py-3.5 bg-slate-50 border border-slate-300 rounded-xl text-base text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition shadow-xs"
         />
         {searchTerm && (
           <button
             onClick={() => setSearchTerm('')}
-            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-xs text-slate-400 hover:text-slate-600 font-bold"
+            className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-xs text-slate-500 hover:text-slate-800 font-bold"
           >
             Clear
           </button>
@@ -74,11 +87,13 @@ export const VoterQuestionSearch: React.FC = () => {
       {/* Category Filter Pills */}
       <div className="flex flex-wrap gap-2 mb-6 text-xs">
         {[
-          { id: 'all', label: 'All Queries (50+ Variations)' },
-          { id: 'logistics', label: 'Hours, Dates & USPS' },
-          { id: 'work-rights', label: 'Work Leave & Employment Laws' },
-          { id: 'deadlines', label: 'Registration & Movers' },
-          { id: 'identification', label: 'Voter ID & Lost Wallets' },
+          { id: 'all', label: `All Clusters (${COMPREHENSIVE_QUERY_MATRIX.length} Guides • 550+ Phrasings)` },
+          { id: 'logistics', label: 'Hours, Lines, Booth Rules & USPS' },
+          { id: 'deadlines', label: 'Registration, Moving & Mail Ballots' },
+          { id: 'identification', label: 'Voter ID, Expired License & Rights' },
+          { id: 'work-rights', label: 'Paid Work Leave & Poll Worker Pay' },
+          { id: 'ballot', label: 'What’s on the Ballot, Judges & Recounts' },
+          { id: 'misspellings', label: 'Shorthand & Common Typos' },
         ].map((cat) => (
           <button
             key={cat.id}
@@ -95,13 +110,17 @@ export const VoterQuestionSearch: React.FC = () => {
       </div>
 
       {/* Query Results Count */}
-      <div className="text-xs text-slate-500 mb-4 font-medium flex items-center justify-between">
+      <div className="text-xs text-slate-500 mb-4 font-medium flex flex-wrap items-center justify-between gap-2">
         <span>
-          Showing <strong>{filteredClusters.length}</strong> matching verified answers
+          Showing <strong>{filteredClusters.length}</strong> verified statutory question guides (covering{' '}
+          <strong>
+            {filteredClusters.reduce((acc, c) => acc + 1 + c.variations.length + c.misspellings.length, 0)}
+          </strong>{' '}
+          search phrasings & typos)
         </span>
         <span className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1">
           <CheckCircle2 className="w-3.5 h-3.5" />
-          AEO-Indexed for Voice & AI Overviews
+          AEO-Indexed for Voice, Shorthand & AI Overviews
         </span>
       </div>
 
@@ -114,9 +133,12 @@ export const VoterQuestionSearch: React.FC = () => {
               className="bg-slate-50/70 rounded-xl border border-slate-200 p-5 shadow-xs transition hover:border-blue-300 hover:bg-white"
             >
               <div className="flex items-start justify-between gap-4 mb-2">
-                <h4 className="text-base sm:text-lg font-extrabold text-slate-900 leading-snug">
+                <Link
+                  href={`/voter-questions/${cluster.id}`}
+                  className="text-base sm:text-lg font-extrabold text-slate-900 hover:text-blue-700 leading-snug transition-colors"
+                >
                   {cluster.primaryQuery}
-                </h4>
+                </Link>
                 <span className="px-2 py-0.5 bg-blue-100 text-blue-800 text-[10px] font-bold uppercase rounded shrink-0">
                   {cluster.category}
                 </span>
@@ -128,38 +150,47 @@ export const VoterQuestionSearch: React.FC = () => {
               </div>
 
               {/* Detailed Breakdown */}
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3 whitespace-pre-line">
                 {cluster.inDepthAnswer}
               </p>
 
               {/* Variations & Misspellings caught */}
-              <div className="pt-2 border-t border-slate-200/80 flex flex-wrap items-center gap-1.5 text-[11px] text-slate-500">
+              <div className="pt-2.5 border-t border-slate-200/80 flex flex-wrap items-center gap-1.5 text-[11px] text-slate-500">
                 <Tag className="w-3 h-3 text-slate-400 shrink-0" />
-                <span className="font-semibold text-slate-600">Alternative phrasings & typo targets:</span>
-                {cluster.variations.slice(0, 3).map((v, idx) => (
+                <span className="font-semibold text-slate-600">Shorthand & typo queries matched:</span>
+                {cluster.variations.slice(0, 5).map((v, idx) => (
                   <span key={idx} className="bg-slate-200/70 text-slate-700 px-1.5 py-0.5 rounded">
-                    "{v}"
+                    &ldquo;{v}&rdquo;
                   </span>
                 ))}
-                {cluster.misspellings.slice(0, 2).map((m, idx) => (
+                {cluster.misspellings.slice(0, 3).map((m, idx) => (
                   <span key={idx} className="bg-amber-100/70 text-amber-800 px-1.5 py-0.5 rounded font-mono">
-                    "{m}"
+                    &ldquo;{m}&rdquo;
                   </span>
                 ))}
               </div>
 
-              {/* Statutory Citation */}
-              <div className="mt-2 text-[11px] text-slate-500 flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Legal Authority:</span>
-                <a
-                  href={cluster.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-blue-700 hover:underline"
+              {/* Footer: Statutory Citation + Dedicated Guide Link */}
+              <div className="mt-3 pt-2.5 border-t border-slate-200/60 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
+                <div className="flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Legal Authority:</span>
+                  <a
+                    href={cluster.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-blue-700 hover:underline"
+                  >
+                    {cluster.sourceStatute}
+                  </a>
+                </div>
+                <Link
+                  href={`/voter-questions/${cluster.id}`}
+                  className="inline-flex items-center gap-1 font-bold text-blue-700 hover:text-blue-900"
                 >
-                  {cluster.sourceStatute}
-                </a>
+                  <span>Full 50-State Rule & All {cluster.variations.length + cluster.misspellings.length} Phrasings</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
             </article>
           ))
@@ -168,7 +199,11 @@ export const VoterQuestionSearch: React.FC = () => {
             <HelpCircle className="w-8 h-8 text-slate-400 mx-auto mb-2" />
             <h5 className="text-base font-bold text-slate-800">No exact match found</h5>
             <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
-              Try searching broader terms like "bank", "work", "stamp", "ID", or "hours", or explore our 50-state guides.
+              Try searching broader terms like &ldquo;moved&rdquo;, &ldquo;work&rdquo;, &ldquo;stamp&rdquo;, &ldquo;ID&rdquo;, &ldquo;hours&rdquo;, or &ldquo;felon&rdquo;, or use our{' '}
+              <Link href="/ask" className="text-blue-600 underline font-bold">
+                Instant Civic Answer Engine
+              </Link>
+              .
             </p>
           </div>
         )}
