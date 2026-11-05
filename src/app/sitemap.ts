@@ -17,6 +17,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/sample-ballot-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.99,
+    },
+    {
+      url: `${baseUrl}/poll-closing-times-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
       url: `${baseUrl}/ask`,
       lastModified: now,
       changeFrequency: 'daily',

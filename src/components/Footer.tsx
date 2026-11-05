@@ -52,6 +52,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/sample-ballot-2026" className="text-amber-300 hover:text-white font-bold transition-colors">
+                  What’s On My 2026 Ballot? (Sample Ballot Builder)
+                </Link>
+              </li>
+              <li>
+                <Link href="/poll-closing-times-2026" className="text-blue-300 hover:text-white font-bold transition-colors">
+                  2026 Election Night Poll-Closing Wave Tracker
+                </Link>
+              </li>
+              <li>
                 <Link href="/ask" className="text-amber-300 hover:text-white font-bold transition-colors">
                   Ask the 2026 Statutory Civic Answer Engine
                 </Link>

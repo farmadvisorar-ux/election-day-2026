@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { STATES_DATA, TOPIC_SPOKES, ALL_STATES_LIST, StateElectionData } from '../../../data/states';
 import { COUNTIES_BY_STATE, getCountyElectionAuthorityTitle } from '../../../data/counties';
+import { SENATE_RACE_BY_STATE, GOVERNOR_RACE_BY_STATE } from '../../../data/races2026';
 import { DirectAnswerBox } from '../../../components/DirectAnswerBox';
 import { AdPlacement } from '../../../components/AdPlacement';
 import { AffiliatePartners } from '../../../components/AffiliatePartners';
@@ -457,9 +458,18 @@ export default async function StatePage({ params }: Props) {
 
         {/* Key 2026 Races in this State */}
         <section className="my-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-            <Vote className="w-4 h-4 text-blue-600" />
-            <span>2026 Ballot Preview</span>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-600">
+              <Vote className="w-4 h-4 text-blue-600" />
+              <span>2026 Ballot &amp; Incumbent Preview</span>
+            </div>
+            <Link
+              href={`/sample-ballot-2026?state=${state.slug}`}
+              className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg inline-flex items-center gap-1"
+            >
+              <span>Open My {state.postalCode} 2026 Sample Ballot Worksheet</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
           <h2 className="text-2xl font-black text-slate-900 tracking-tight mb-4">
@@ -467,29 +477,67 @@ export default async function StatePage({ params }: Props) {
           </h2>
 
           <div className="space-y-4">
-            {state.keyRaces2026.senate && (
+            {SENATE_RACE_BY_STATE[state.slug] ? (
               <div className="p-4 bg-slate-50 border-l-4 border-blue-600 rounded-r-xl">
-                <span className="text-xs font-bold text-blue-700 uppercase">U.S. Senate Seat</span>
-                <h3 className="text-base font-bold text-slate-900 mt-0.5">
-                  2026 United States Senate Election in {state.name}
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="text-xs font-bold text-blue-700 uppercase">
+                    U.S. Senate Seat • {SENATE_RACE_BY_STATE[state.slug].seatClass}
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-900 text-xs font-extrabold">
+                    {SENATE_RACE_BY_STATE[state.slug].rating} • {SENATE_RACE_BY_STATE[state.slug].status}
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-slate-900 mt-1">
+                  2026 {state.name} U.S. Senate Election — Incumbent: {SENATE_RACE_BY_STATE[state.slug].incumbent} ({SENATE_RACE_BY_STATE[state.slug].incumbentParty})
                 </h3>
                 <p className="text-xs text-slate-600 mt-1">
-                  {state.keyRaces2026.senateDescription || 'Major statewide federal Senate election.'}
+                  {SENATE_RACE_BY_STATE[state.slug].storyline}
+                </p>
+                <Link
+                  href="/races/senate-2026"
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:underline"
+                >
+                  <span>Compare All 35 U.S. Senate Races in 2026</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            ) : (
+              <div className="p-4 bg-slate-50 border-l-4 border-slate-400 rounded-r-xl">
+                <span className="text-xs font-bold text-slate-600 uppercase">U.S. Senate Schedule</span>
+                <h3 className="text-base font-bold text-slate-900 mt-0.5">
+                  No Regular Class II U.S. Senate Election in {state.name} on Nov 3, 2026
+                </h3>
+                <p className="text-xs text-slate-600 mt-1">
+                  {state.name}’s two U.S. Senators belong to Class I and Class III (next regular Senate elections in 2028 and 2030). All U.S. House Congressional Districts in {state.name} are on the November 3, 2026 ballot.
                 </p>
               </div>
             )}
 
-            {state.keyRaces2026.governor && (
+            {GOVERNOR_RACE_BY_STATE[state.slug] ? (
               <div className="p-4 bg-slate-50 border-l-4 border-indigo-600 rounded-r-xl">
-                <span className="text-xs font-bold text-indigo-700 uppercase">State Chief Executive</span>
-                <h3 className="text-base font-bold text-slate-900 mt-0.5">
-                  2026 {state.name} Gubernatorial Election
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="text-xs font-bold text-indigo-700 uppercase">
+                    State Chief Executive • Governor
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-indigo-100 text-indigo-900 text-xs font-extrabold">
+                    {GOVERNOR_RACE_BY_STATE[state.slug].rating} • {GOVERNOR_RACE_BY_STATE[state.slug].status}
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-slate-900 mt-1">
+                  2026 {state.name} Gubernatorial Election — Sitting Gov: {GOVERNOR_RACE_BY_STATE[state.slug].incumbent} ({GOVERNOR_RACE_BY_STATE[state.slug].incumbentParty})
                 </h3>
                 <p className="text-xs text-slate-600 mt-1">
-                  {state.keyRaces2026.governorDescription || 'Election for Governor and statewide executive officers.'}
+                  {GOVERNOR_RACE_BY_STATE[state.slug].storyline}
                 </p>
+                <Link
+                  href="/races/governor-2026"
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-indigo-600 hover:underline"
+                >
+                  <span>Compare All 36 State Governor Races in 2026</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
-            )}
+            ) : null}
 
             {state.keyRaces2026.competitiveHouseDistricts.length > 0 && (
               <div>
