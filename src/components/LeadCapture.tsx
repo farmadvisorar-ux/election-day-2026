@@ -1,155 +1,197 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ALL_STATES_LIST, STATES_DATA } from '../data/states';
-import { Mail, CheckCircle2, Shield, Bell, Printer, ExternalLink, ArrowRight } from 'lucide-react';
+import { ALL_STATES_LIST } from '../data/states';
+import { Bell, CheckCircle, Shield, Calendar, Download } from 'lucide-react';
 
-export const LeadCapture: React.FC = () => {
+interface LeadCaptureProps {
+  stateName?: string;
+}
+
+const STORAGE_KEY = 'election2026_subscriber_v1';
+
+export const LeadCapture: React.FC<LeadCaptureProps> = ({ stateName }) => {
+  const defaultState =
+    ALL_STATES_LIST.find((s) => s.name.toLowerCase() === (stateName || '').toLowerCase())?.slug ||
+    'california';
+
   const [email, setEmail] = useState('');
-  const [stateSlug, setStateSlug] = useState('pennsylvania');
+  const [selectedState, setSelectedState] = useState(defaultState);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [subData, setSubData] = useState<{
+    subscriptionId?: string;
+    stateName?: string;
+    pollingHours?: string;
+    registrationDeadline?: string;
+    icsContent?: string;
+  } | null>(null);
 
-  const selectedState = STATES_DATA[stateSlug] || STATES_DATA['pennsylvania'];
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed?.email) {
+          setEmail(parsed.email);
+          setSubData(parsed);
+          setSubmitted(true);
+        }
+      }
+    } catch {
+      // ignore storage errors
+    }
+  }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
+    if (!email.includes('@')) return;
+    setLoading(true);
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, stateSlug: selectedState }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        const record = { email, ...data };
+        setSubData(record);
+        setSubmitted(true);
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+        } catch {
+          // ignore
+        }
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDownloadIcs = () => {
+    if (!subData?.icsContent) return;
+    const blob = new Blob([subData.icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `election-day-2026-${selectedState}.ics`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   return (
-    <aside
-      aria-label="Voter Alert Subscription & Cheat Sheet Generator"
-      className="my-10 rounded-2xl bg-gradient-to-br from-slate-900 to-blue-950 p-6 md:p-8 text-white shadow-xl border border-blue-900/50"
-    >
-      <div className="max-w-3xl mx-auto">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-300 mb-2">
-          <Bell className="w-4 h-4 text-amber-400" />
-          <span>Free 2026 Personalized Voter Cheat Sheet &amp; Alerts</span>
+    <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-3xl p-8 md:p-10 text-white shadow-xl border border-blue-800/50 relative overflow-hidden">
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-xs font-bold uppercase tracking-wider mb-4">
+          <Bell className="w-3.5 h-3.5 text-amber-400" />
+          <span>2026 Civic Deadline Reminder &amp; Calendar Sync</span>
         </div>
 
-        <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">
-          Unlock Your 2026 State Voter Checklist &amp; Deadline Alerts
+        <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
+          Never Miss Your {stateName ? `${stateName} ` : ''}2026 Voting Deadlines
         </h3>
-        <p className="text-sm md:text-base text-slate-300 mt-2 mb-6">
-          Over 35% of non-voters miss deadlines because rules change between election cycles. Select your state and enter your email to unlock your printable <strong>2026 Official State Voter Cheat Sheet</strong> and receive registration cutoff reminders.
+        <p className="text-blue-200 text-sm sm:text-base mb-6 max-w-xl mx-auto leading-relaxed">
+          Get a one-time non-partisan alert 7 days before your state’s voter registration cutoff, early voting start date, and Election Day (November 3, 2026)—plus an instant <strong>.ICS Calendar Sync</strong>.
         </p>
 
-        {submitted && selectedState ? (
-          <div className="bg-white text-slate-900 rounded-2xl p-6 border-2 border-emerald-500 shadow-lg">
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-200">
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0" />
-                <div>
-                  <h4 className="text-lg font-black text-slate-900">
-                    2026 Official {selectedState.name} ({selectedState.postalCode}) Voter Cheat Sheet
-                  </h4>
-                  <p className="text-xs text-slate-500">
-                    Alerts registered for <strong>{email}</strong> • Tuesday, November 3, 2026 General Election
-                  </p>
-                </div>
-              </div>
+        {submitted ? (
+          <div className="bg-emerald-500/20 border border-emerald-400/40 rounded-2xl p-6 max-w-xl mx-auto space-y-4">
+            <div className="flex items-center justify-center gap-3 text-emerald-200 font-bold text-sm">
+              <CheckCircle className="w-6 h-6 text-emerald-400 shrink-0" />
+              <span>
+                Reminder active for <strong>{email}</strong> ({subData?.stateName || stateName || '2026 Midterms'})!
+              </span>
+            </div>
 
+            {subData?.registrationDeadline && (
+              <div className="text-xs text-blue-100 bg-slate-950/50 rounded-xl p-3 border border-white/10">
+                <strong>{subData.stateName} Registration Cutoff:</strong> {subData.registrationDeadline} •{' '}
+                <strong>Nov 3 Polls:</strong> {subData.pollingHours}
+              </div>
+            )}
+
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {subData?.icsContent && (
+                <button
+                  type="button"
+                  onClick={handleDownloadIcs}
+                  className="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs inline-flex items-center gap-1.5 shadow-md transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download 2026 .ICS Calendar Invite</span>
+                </button>
+              )}
               <button
                 type="button"
-                onClick={() => window.print()}
-                className="px-3.5 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl inline-flex items-center gap-1.5 cursor-pointer"
+                onClick={() => {
+                  setSubmitted(false);
+                  try {
+                    localStorage.removeItem(STORAGE_KEY);
+                  } catch {
+                    // ignore
+                  }
+                }}
+                className="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold"
               >
-                <Printer className="w-3.5 h-3.5" />
-                <span>Print / Save Cheat Sheet</span>
+                Change State / Email
               </button>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs mb-4">
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                <div className="font-bold uppercase text-slate-500 text-[10px]">Election Day Poll Hours</div>
-                <div className="text-sm font-black text-blue-700 mt-0.5">
-                  {selectedState.pollingHours} ({selectedState.timezone})
-                </div>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                <div className="font-bold uppercase text-slate-500 text-[10px]">Voter Registration Cutoff</div>
-                <div className="text-sm font-black text-slate-900 mt-0.5">
-                  {selectedState.registrationDeadline.online}
-                </div>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                <div className="font-bold uppercase text-slate-500 text-[10px]">Early In-Person Voting</div>
-                <div className="text-sm font-black text-slate-900 mt-0.5">
-                  {selectedState.earlyVoting.starts} – {selectedState.earlyVoting.ends}
-                </div>
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                <div className="font-bold uppercase text-slate-500 text-[10px]">Voter ID &amp; Work Leave Law</div>
-                <div className="text-sm font-black text-slate-900 mt-0.5">
-                  {selectedState.voterId.type} • {selectedState.workLeaveLaw.statuteCitation}
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-200 text-xs">
-              <Link
-                href={`/states/${selectedState.slug}#counties`}
-                className="font-bold text-blue-600 hover:underline flex items-center gap-1"
-              >
-                <span>Select Your {selectedState.name} County Election Board</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <a
-                href={selectedState.officialPortal.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold text-emerald-700 hover:underline flex items-center gap-1"
-              >
-                <span>Verify on {selectedState.officialPortal.name} (.gov)</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address..."
-                className="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-              />
-
-              <select
-                value={stateSlug}
-                onChange={(e) => setStateSlug(e.target.value)}
-                aria-label="Select your state for voter reminders"
-                className="bg-slate-800 border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-              >
-                {ALL_STATES_LIST.map((st) => (
-                  <option key={st.slug} value={st.slug}>
-                    {st.name} ({st.postalCode})
-                  </option>
-                ))}
-              </select>
-
-              <button
-                type="submit"
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-xl transition-colors shadow-md flex items-center justify-center gap-2 shrink-0 cursor-pointer"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Unlock Cheat Sheet</span>
-              </button>
-            </div>
-
-            <div className="flex items-center gap-2 text-xs text-slate-400 pt-1">
-              <Shield className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-              <span>
-                100% Non-Partisan Guarantee. Zero political campaign spam. Instant printable checklist.
-              </span>
-            </div>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto"
+          >
+            <select
+              aria-label="Select your state for voting deadline alerts"
+              value={selectedState}
+              onChange={(e) => setSelectedState(e.target.value)}
+              className="px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 sm:w-48"
+            >
+              {ALL_STATES_LIST.map((st) => (
+                <option key={st.slug} value={st.slug} className="text-slate-900">
+                  {st.name} ({st.postalCode})
+                </option>
+              ))}
+            </select>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address..."
+              className="flex-1 px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-blue-200/60 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="px-6 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm rounded-xl shadow-md transition-colors shrink-0 flex items-center justify-center gap-1.5"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>{loading ? 'Activating...' : 'Get Free Alerts'}</span>
+            </button>
           </form>
         )}
+
+        <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-blue-300/80 mt-4">
+          <div className="flex items-center gap-1.5">
+            <Shield className="w-3.5 h-3.5" />
+            <span>Zero spam. Zero partisan fundraising.</span>
+          </div>
+          <span>•</span>
+          <Link href="/advertise" className="text-amber-300 hover:underline font-bold">
+            Civic Nonprofits &amp; HR Brands: Sponsor a State Guide →
+          </Link>
+        </div>
       </div>
-    </aside>
+    </div>
   );
 };

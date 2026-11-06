@@ -57,6 +57,21 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/cities" className="text-emerald-300 hover:text-white font-bold transition-colors">
+                  Top 153 U.S. Cities &amp; Split-County Voting Directory
+                </Link>
+              </li>
+              <li>
+                <Link href="/ballot-measures-2026" className="text-blue-300 hover:text-white font-bold transition-colors">
+                  2026 Ballot Measures &amp; Propositions YES/NO Decoder
+                </Link>
+              </li>
+              <li>
+                <Link href="/first-time-voter-guide-2026" className="text-purple-300 hover:text-white font-bold transition-colors">
+                  First-Time Voter Walkthrough &amp; Poll Worker Pay Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/ballot-problem-solver" className="text-red-300 hover:text-white font-bold transition-colors">
                   Emergency Ballot Problem Solver &amp; Cure Tracker
                 </Link>
@@ -114,6 +129,11 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/editorial-policy" className="hover:text-white transition-colors">
                   Editorial & Fact-Checking Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/advertise" className="text-amber-300 hover:text-white font-bold transition-colors">
+                  Civic Sponsorships &amp; 2026 Media Kit
                 </Link>
               </li>
             </ul>

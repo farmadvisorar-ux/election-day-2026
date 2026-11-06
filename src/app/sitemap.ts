@@ -3,6 +3,7 @@ import { STATES_DATA, TOPIC_SPOKES } from '../data/states';
 import { COUNTIES_BY_STATE } from '../data/counties';
 import { ALL_DISTRICTS_LIST } from '../data/districts';
 import { COMPREHENSIVE_QUERY_MATRIX } from '../data/queries';
+import { CITIES_2026_LIST } from '../data/cities2026';
 import { SITE_URL } from '../lib/siteConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -39,6 +40,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'daily',
       priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/cities`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/ballot-measures-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/first-time-voter-guide-2026`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.96,
+    },
+    {
+      url: `${baseUrl}/advertise`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
     },
     {
       url: `${baseUrl}/llms-full.txt`,
@@ -187,6 +212,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // 153 Major U.S. Cities Election & Split-County Hub Pages
+  const cityRoutes: MetadataRoute.Sitemap = CITIES_2026_LIST.map((city) => ({
+    url: `${baseUrl}/cities/${city.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }));
+
   // 436 Congressional District Pages (435 U.S. House Seats + DC-AL)
   const districtRoutes: MetadataRoute.Sitemap = ALL_DISTRICTS_LIST.map((d) => ({
     url: `${baseUrl}/districts/${d.slug}`,
@@ -214,6 +247,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...stateHubRoutes,
     ...spanishStateRoutes,
     ...stateTopicSpokeRoutes,
+    ...cityRoutes,
     ...districtRoutes,
     ...countyRoutes,
   ];

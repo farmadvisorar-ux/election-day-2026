@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { STATES_DATA, ALL_STATES_LIST } from '../../data/states';
 import { SENATE_RACES_2026, GOVERNOR_RACES_2026 } from '../../data/races2026';
 import { COMPREHENSIVE_QUERY_MATRIX } from '../../data/queries';
+import { CITIES_2026_LIST } from '../../data/cities2026';
+import { BALLOT_MEASURES_2026 } from '../../data/ballotMeasures2026';
 import { SITE_URL } from '../../lib/siteConfig';
 
 export async function GET() {
@@ -18,6 +20,10 @@ export async function GET() {
     `- **Election Night 2026 Poll-Closing Wave Tracker (6 PM ET to 1 AM ET)**: ${SITE_URL}/poll-closing-times-2026`,
     `- **Emergency Ballot Problem Solver & Post-Election Cure Tracker**: ${SITE_URL}/ballot-problem-solver`,
     `- **2026 U.S. Senate, House & Governor Majority Simulator**: ${SITE_URL}/majority-calculator-2026`,
+    `- **Top 153 U.S. Cities Election & Split-County Resolver Directory**: ${SITE_URL}/cities`,
+    `- **2026 Statewide Ballot Measures & Propositions YES/NO Decoder**: ${SITE_URL}/ballot-measures-2026`,
+    `- **First-Time Voter Polling Booth Walkthrough & 50-State Poll Worker Pay Calculator**: ${SITE_URL}/first-time-voter-guide-2026`,
+    `- **Direct Non-Partisan Civic Sponsorship & B2B Media Kit**: ${SITE_URL}/advertise`,
     `- **Zero-Hallucination Statutory Civic AI Engine**: ${SITE_URL}/ask`,
     `- **Personal 2026 Voting Plan, Wallet ID & Shift Conflict Checker**: ${SITE_URL}/my-voting-plan`,
     `- **Employer Paid Voting Leave HR Legal Notice Generator**: ${SITE_URL}/tools/employer-voting-leave-notice`,
@@ -87,6 +93,36 @@ export async function GET() {
     lines.push(`- **Direct Answer**: ${q.directAnswer}`);
     lines.push(`- **Detailed Statutory Explanation**: ${q.inDepthAnswer.replace(/\n+/g, ' ')}`);
     lines.push(`- **Legal Citation**: ${q.sourceStatute} (${q.sourceUrl})`);
+    lines.push('');
+  }
+
+  lines.push(
+    '## 6. Top U.S. Cities & Multi-County Split Election Administration Directory',
+    '',
+    '| City | State | Split-County? | Administering Counties | Election Authority | Voting Model | Transit Agency | City Guide URL |',
+    '| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |'
+  );
+
+  for (const city of CITIES_2026_LIST) {
+    lines.push(
+      `| **${city.cityName}** | ${city.stateAbbr} | ${city.isSplitCounty ? 'Yes (Multi-County)' : 'No'} | ${city.counties
+        .map((c) => c.name)
+        .join(', ')} | ${city.electionAuthorityName} | ${city.votingSystemType} | ${city.transitAgency} | ${SITE_URL}/cities/${city.slug} |`
+    );
+  }
+
+  lines.push(
+    '',
+    '## 7. 2026 Statewide Ballot Measures, Propositions & Constitutional Amendments Plain-English Decoder',
+    ''
+  );
+
+  for (const m of BALLOT_MEASURES_2026) {
+    lines.push(`### ${m.stateName} (${m.stateAbbr}) — ${m.measureCode}: ${m.title}`);
+    lines.push(`- **Topic**: ${m.topic} (${m.measureType})`);
+    lines.push(`- **Passage Threshold**: ${m.passageRequirement}`);
+    lines.push(`- **What a YES Vote Means**: ${m.whatYesMeans}`);
+    lines.push(`- **What a NO Vote Means**: ${m.whatNoMeans}`);
     lines.push('');
   }
 

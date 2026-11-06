@@ -160,9 +160,9 @@ export default function HomePage() {
               <Vote className="w-4 h-4" />
               <span>Seats on Ballot</span>
             </div>
-            <div className="text-lg font-black text-slate-900">435 House + 34 Senate</div>
+            <div className="text-lg font-black text-slate-900">435 House + 35 Senate</div>
             <p className="text-xs text-slate-500 mt-1">
-              Plus 36 state Governors and thousands of local municipal and judicial offices.
+              33 Class II + OH/FL Senate Specials, 36 Governors, 153 City Hubs &amp; statewide propositions.
             </p>
           </div>
 
@@ -236,7 +236,7 @@ export default function HomePage() {
                 <strong>All 435 U.S. House of Representatives Seats:</strong> Every member of Congress faces re-election every two years. The outcome determines which political party controls the House majority, committee gavels, and legislative docket.
               </li>
               <li>
-                <strong>34 Class II U.S. Senate Seats:</strong> Senators serve staggered six-year terms. The 34 seats up in 2026 include fiercely contested battleground races in Georgia, North Carolina, Michigan, Maine, and Texas.
+                <strong>35 U.S. Senate Seats (33 Class II + 2 Specials):</strong> Senators serve staggered six-year terms. The 35 contests up in 2026 include 33 regular Class II seats plus the Ohio and Florida special Senate elections, featuring marquee battlegrounds in Georgia, North Carolina, Michigan, Maine, and Ohio.
               </li>
             </ul>
             <div className="mt-4">
@@ -301,7 +301,162 @@ export default function HomePage() {
 
       {/* Presidential-Grade Civic Utilities & Open Data Command Bar */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+            2026 Interactive Voter Tools, City Hubs &amp; Election Night Simulators
+          </h2>
+          <Link href="/advertise" className="text-xs font-extrabold text-blue-600 hover:underline">
+            Sponsor a Civic Tool →
+          </Link>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Link
+            href="/sample-ballot-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-900 text-white border border-blue-400/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                Printable Booth Cheat Sheet
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                What&apos;s On My 2026 Ballot? Builder
+              </h3>
+              <p className="text-xs text-slate-100 mt-1.5 leading-relaxed">
+                Preview every federal, gubernatorial, state legislative, and judicial race on your state&apos;s Nov 3, 2026 ballot and print a legal booth guide.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Build Sample Ballot</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/cities"
+            className="p-5 rounded-2xl bg-gradient-to-br from-emerald-800 to-slate-950 text-white border border-emerald-500/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                153 Major U.S. Cities • Split-County Resolver
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                Where to Vote in Your City (2026 Hub)
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Search NYC (5 boroughs), Chicago, Houston, LA, Phoenix, Philadelphia, Atlanta &amp; Dallas for city Vote Centers, split-county boundaries, and free transit.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
+              <span>Search 153 U.S. Cities</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/ballot-measures-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-indigo-900 to-slate-950 text-white border border-indigo-500/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                Plain-English YES vs. NO Decoder
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                2026 Statewide Propositions &amp; Amendments
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Translate confusing legal ballot wording into plain-English YES vs. NO outcomes, plus 60%/55% supermajority state rules.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Decode 2026 Propositions</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/ballot-problem-solver"
+            className="p-5 rounded-2xl bg-gradient-to-br from-rose-900 to-slate-950 text-white border border-rose-500/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300">
+                Emergency Election Day Fixer
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                Ballot Problem Solver &amp; Signature Cure
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Mail ballot didn&apos;t arrive? Rejected signature? Forgot Photo ID? Name missing from pollbook? Get your state&apos;s exact cure deadline &amp; cover sheet.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-rose-300 flex items-center gap-1">
+              <span>Solve Ballot Emergency</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/first-time-voter-guide-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-purple-900 to-slate-950 text-white border border-purple-500/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                Polling Booth Simulator + Poll Worker Pay
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                First-Time Voter &amp; Poll Worker Pay Hub
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                6-step inside-the-booth walkthrough, college student dorm rules, and our 50-State Paid Poll Worker Calculator ($175–$350+/day).
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Open First-Time Voter Hub</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/majority-calculator-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-blue-950 text-white border border-blue-500/40 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-300">
+                51 Senate • 218 House • 26 Govs
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                2026 Senate, House &amp; Governor Simulator
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Toggle battleground seats in GA, NC, MI, ME, OH &amp; NH and watch the live balance of power shift in real time.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-blue-300 flex items-center gap-1">
+              <span>Launch Majority Simulator</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/poll-closing-times-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-indigo-950 text-white border border-indigo-500/40 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                6:00 PM ET to 1:00 AM ET Waves
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                Election Night 2026 Poll-Closing Tracker
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Hour-by-hour poll closing waves across ET/CT/MT/PT timezones plus state mail-ballot counting speed badges.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
+              <span>View Poll-Closing Waves</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
           <Link
             href="/counties"
             className="p-5 rounded-2xl bg-gradient-to-br from-blue-700 to-indigo-950 text-white border border-blue-500/50 hover:shadow-lg transition-all flex flex-col justify-between"

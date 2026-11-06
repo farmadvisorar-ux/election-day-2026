@@ -21,8 +21,20 @@ export const Header: React.FC = () => {
               🇺🇸/🇪🇸 Español
             </Link>
             <span>•</span>
-            <Link href="/50-state-comparison-matrix" className="hover:text-white font-semibold">
-              50-State Matrix
+            <Link href="/cities" className="text-emerald-300 hover:text-white font-bold">
+              153 U.S. Cities
+            </Link>
+            <span>•</span>
+            <Link href="/ballot-measures-2026" className="hover:text-white font-semibold">
+              2026 Propositions
+            </Link>
+            <span>•</span>
+            <Link href="/first-time-voter-guide-2026" className="hover:text-white font-semibold">
+              First-Time Voter &amp; Poll Worker Pay
+            </Link>
+            <span>•</span>
+            <Link href="/advertise" className="text-blue-300 hover:text-white font-bold">
+              Sponsor
             </Link>
             <span>•</span>
             <Link href="/editorial-policy" className="hover:text-white flex items-center gap-1">
