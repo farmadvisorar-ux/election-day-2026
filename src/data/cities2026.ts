@@ -26,7 +26,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "new-york-city-ny",
     "cityName": "New York City",
-    "stateSlug": "new-york",
+    "stateSlug": "newyork",
     "stateAbbr": "NY",
     "stateName": "New York",
     "population": 8258035,
@@ -486,7 +486,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "charlotte-nc",
     "cityName": "Charlotte",
-    "stateSlug": "north-carolina",
+    "stateSlug": "northcarolina",
     "stateAbbr": "NC",
     "stateName": "North Carolina",
     "population": 911311,
@@ -668,7 +668,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "washington-dc",
     "cityName": "Washington",
-    "stateSlug": "district-of-columbia",
+    "stateSlug": "districtofcolumbia",
     "stateAbbr": "DC",
     "stateName": "District of Columbia",
     "population": 678972,
@@ -923,7 +923,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "albuquerque-nm",
     "cityName": "Albuquerque",
-    "stateSlug": "new-mexico",
+    "stateSlug": "newmexico",
     "stateAbbr": "NM",
     "stateName": "New Mexico",
     "population": 560274,
@@ -1157,7 +1157,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "raleigh-nc",
     "cityName": "Raleigh",
-    "stateSlug": "north-carolina",
+    "stateSlug": "northcarolina",
     "stateAbbr": "NC",
     "stateName": "North Carolina",
     "population": 482295,
@@ -1770,7 +1770,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "newark-nj",
     "cityName": "Newark",
-    "stateSlug": "new-jersey",
+    "stateSlug": "newjersey",
     "stateAbbr": "NJ",
     "stateName": "New Jersey",
     "population": 304960,
@@ -1840,7 +1840,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "greensboro-nc",
     "cityName": "Greensboro",
-    "stateSlug": "north-carolina",
+    "stateSlug": "northcarolina",
     "stateAbbr": "NC",
     "stateName": "North Carolina",
     "population": 302296,
@@ -1864,7 +1864,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "durham-nc",
     "cityName": "Durham",
-    "stateSlug": "north-carolina",
+    "stateSlug": "northcarolina",
     "stateAbbr": "NC",
     "stateName": "North Carolina",
     "population": 296186,
@@ -1910,7 +1910,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "jersey-city-nj",
     "cityName": "Jersey City",
-    "stateSlug": "new-jersey",
+    "stateSlug": "newjersey",
     "stateAbbr": "NJ",
     "stateName": "New Jersey",
     "population": 291657,
@@ -2149,7 +2149,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "buffalo-ny",
     "cityName": "Buffalo",
-    "stateSlug": "new-york",
+    "stateSlug": "newyork",
     "stateAbbr": "NY",
     "stateName": "New York",
     "population": 274678,
@@ -2360,7 +2360,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "winston-salem-nc",
     "cityName": "Winston-Salem",
-    "stateSlug": "north-carolina",
+    "stateSlug": "northcarolina",
     "stateAbbr": "NC",
     "stateName": "North Carolina",
     "population": 252975,
@@ -2708,7 +2708,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "rochester-ny",
     "cityName": "Rochester",
-    "stateSlug": "new-york",
+    "stateSlug": "newyork",
     "stateAbbr": "NY",
     "stateName": "New York",
     "population": 207274,
@@ -2731,7 +2731,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "sioux-falls-sd",
     "cityName": "Sioux Falls",
-    "stateSlug": "south-dakota",
+    "stateSlug": "southdakota",
     "stateAbbr": "SD",
     "stateName": "South Dakota",
     "population": 206410,
@@ -2970,7 +2970,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "providence-ri",
     "cityName": "Providence",
-    "stateSlug": "rhode-island",
+    "stateSlug": "rhodeisland",
     "stateAbbr": "RI",
     "stateName": "Rhode Island",
     "population": 190792,
@@ -3142,7 +3142,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "charleston-sc",
     "cityName": "Charleston",
-    "stateSlug": "south-carolina",
+    "stateSlug": "southcarolina",
     "stateAbbr": "SC",
     "stateName": "South Carolina",
     "population": 155369,
@@ -3216,7 +3216,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "syracuse-ny",
     "cityName": "Syracuse",
-    "stateSlug": "new-york",
+    "stateSlug": "newyork",
     "stateAbbr": "NY",
     "stateName": "New York",
     "population": 145560,
@@ -3271,7 +3271,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "columbia-sc",
     "cityName": "Columbia",
-    "stateSlug": "south-carolina",
+    "stateSlug": "southcarolina",
     "stateAbbr": "SC",
     "stateName": "South Carolina",
     "population": 142416,
@@ -3368,7 +3368,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "fargo-nd",
     "cityName": "Fargo",
-    "stateSlug": "north-dakota",
+    "stateSlug": "northdakota",
     "stateAbbr": "ND",
     "stateName": "North Dakota",
     "population": 133188,
@@ -3530,7 +3530,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "manchester-nh",
     "cityName": "Manchester",
-    "stateSlug": "new-hampshire",
+    "stateSlug": "newhampshire",
     "stateAbbr": "NH",
     "stateName": "New Hampshire",
     "population": 115474,
@@ -3553,7 +3553,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "las-cruces-nm",
     "cityName": "Las Cruces",
-    "stateSlug": "new-mexico",
+    "stateSlug": "newmexico",
     "stateAbbr": "NM",
     "stateName": "New Mexico",
     "population": 114892,
@@ -3645,7 +3645,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "albany-ny",
     "cityName": "Albany",
-    "stateSlug": "new-york",
+    "stateSlug": "newyork",
     "stateAbbr": "NY",
     "stateName": "New York",
     "population": 101228,
@@ -3691,7 +3691,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "santa-fe-nm",
     "cityName": "Santa Fe",
-    "stateSlug": "new-mexico",
+    "stateSlug": "newmexico",
     "stateAbbr": "NM",
     "stateName": "New Mexico",
     "population": 89137,
@@ -3829,7 +3829,7 @@ export const CITIES_2026_LIST: CityElectionData2026[] = [
   {
     "slug": "charleston-wv",
     "cityName": "Charleston",
-    "stateSlug": "west-virginia",
+    "stateSlug": "westvirginia",
     "stateAbbr": "WV",
     "stateName": "West Virginia",
     "population": 46686,

@@ -68,7 +68,7 @@ export const STATE_MEASURE_THRESHOLDS: StateMeasureThresholdRule[] = [
     specialRuleNote: 'Unique to Nevada: Citizen-initiated constitutional amendments that passed in November 2024 must pass a SECOND time on the November 3, 2026 ballot to take effect!',
   },
   {
-    stateSlug: 'new-hampshire',
+    stateSlug: 'newhampshire',
     stateName: 'New Hampshire',
     hasCitizenInitiative: false,
     constitutionalThreshold: '66.67% (Two-Thirds Supermajority of votes cast on the amendment)',
@@ -281,7 +281,7 @@ export const BALLOT_MEASURES_2026: BallotMeasure2026[] = [
   },
   {
     id: 'ny-2026-proposal-1-environmental-and-voting-amendment',
-    stateSlug: 'new-york',
+    stateSlug: 'newyork',
     stateName: 'New York',
     stateAbbr: 'NY',
     measureCode: 'New York 2026 Proposal 1 (On the Back of Your Ballot!)',

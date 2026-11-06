@@ -976,9 +976,27 @@ function buildFullStatesDictionary(): Record<string, StateElectionData> {
   return dict;
 }
 
-export const STATES_DATA: Record<string, StateElectionData> = buildFullStatesDictionary();
+const RAW_STATES_DATA: Record<string, StateElectionData> = buildFullStatesDictionary();
 
-export const ALL_STATES_LIST = Object.values(STATES_DATA)
+export const normalizeStateSlug = (slug: string): string => {
+  if (!slug) return '';
+  const s = slug.toLowerCase().replace(/[^a-z0-9]/g, '');
+  if (s === 'dc' || s === 'washingtondc' || s === 'district-of-columbia') return 'districtofcolumbia';
+  return s;
+};
+
+export const STATES_DATA: Record<string, StateElectionData> = new Proxy(RAW_STATES_DATA, {
+  get(target, prop: string) {
+    if (typeof prop === 'string') {
+      if (prop in target) return target[prop];
+      const norm = normalizeStateSlug(prop);
+      if (norm in target) return target[norm];
+    }
+    return (target as any)[prop];
+  },
+});
+
+export const ALL_STATES_LIST = Object.values(RAW_STATES_DATA)
   .map((st) => ({
     slug: st.slug,
     name: st.name,
