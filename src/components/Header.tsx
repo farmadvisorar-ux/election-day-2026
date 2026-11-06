@@ -109,6 +109,20 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link
+              href="/ballot-problem-solver"
+              className="hover:text-red-600 transition-colors flex items-center gap-1 text-red-700 font-black"
+            >
+              <span>Cure Ballot</span>
+            </Link>
+
+            <Link
+              href="/majority-calculator-2026"
+              className="hover:text-indigo-600 transition-colors flex items-center gap-1 text-indigo-700 font-black"
+            >
+              <span>2026 Simulator</span>
+            </Link>
+
+            <Link
               href="/poll-closing-times-2026"
               className="hover:text-blue-600 transition-colors flex items-center gap-1"
             >

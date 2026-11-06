@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { CountdownTimer } from '../../../components/CountdownTimer';
 import { AdPlacement } from '../../../components/AdPlacement';
 import { JsonLd } from '../../../components/JsonLd';
+import { ALL_STATES_LIST } from '../../../data/states';
 import { Calendar, CheckCircle2, Globe, Vote, ShieldCheck, ExternalLink, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -152,7 +153,7 @@ export default function SpanishElectionGuidePage() {
             ].map((st) => (
               <Link
                 key={st.slug}
-                href={`/states/${st.slug}`}
+                href={`/es/estados/${st.slug}`}
                 className="p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 bg-slate-50 hover:bg-white transition-all flex flex-col justify-between"
               >
                 <div>
@@ -160,10 +161,27 @@ export default function SpanishElectionGuidePage() {
                   <p className="text-slate-600 mt-1 text-[11px]">{st.note}</p>
                 </div>
                 <span className="text-blue-600 font-bold text-[11px] mt-2 inline-flex items-center gap-1">
-                  Ver guía completa <ArrowRight className="w-3 h-3" />
+                  Ver guía en español <ArrowRight className="w-3 h-3" />
                 </span>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-6 pt-5 border-t border-slate-200">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
+              Directorio Completo: Guías en Español para los 50 Estados y Washington D.C.
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              {ALL_STATES_LIST.map((st) => (
+                <Link
+                  key={st.slug}
+                  href={`/es/estados/${st.slug}`}
+                  className="text-[11px] px-2.5 py-1 rounded bg-slate-100 hover:bg-blue-600 text-slate-700 hover:text-white font-semibold transition-colors"
+                >
+                  {st.name} ({st.postalCode})
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 

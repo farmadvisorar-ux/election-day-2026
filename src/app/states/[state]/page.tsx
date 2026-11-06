@@ -52,6 +52,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Official non-partisan voting guide for ${state.name} (${state.postalCode}) on November 3, 2026. Voter registration deadlines (${state.registrationDeadline.online}), early voting dates, paid work leave (${state.workLeaveLaw.statuteCitation}), and ${state.name} Secretary of State portals.`,
     alternates: {
       canonical: `https://election-day-2026.vercel.app/states/${state.slug}`,
+      languages: {
+        'en-US': `https://election-day-2026.vercel.app/states/${state.slug}`,
+        'es-US': `https://election-day-2026.vercel.app/es/estados/${state.slug}`,
+      },
     },
     keywords: [
       `${state.name} election day 2026`,

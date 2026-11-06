@@ -29,6 +29,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.98,
     },
     {
+      url: `${baseUrl}/ballot-problem-solver`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/majority-calculator-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/llms-full.txt`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/ask`,
       lastModified: now,
       changeFrequency: 'daily',
@@ -140,12 +158,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // 51 State & DC Hub Pages
+  // 51 State & DC Hub Pages (English)
   const stateHubRoutes: MetadataRoute.Sitemap = Object.keys(STATES_DATA).map((slug) => ({
     url: `${baseUrl}/states/${slug}`,
     lastModified: now,
     changeFrequency: 'weekly',
     priority: 0.9,
+  }));
+
+  // 51 State & DC Hub Pages (Spanish /es/estados/[state])
+  const spanishStateRoutes: MetadataRoute.Sitemap = Object.keys(STATES_DATA).map((slug) => ({
+    url: `${baseUrl}/es/estados/${slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.88,
   }));
 
   // 306 State x Topic Spoke Pages (51 Jurisdictions x 6 High-Intent Topics)
@@ -186,6 +212,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes,
     ...questionRoutes,
     ...stateHubRoutes,
+    ...spanishStateRoutes,
     ...stateTopicSpokeRoutes,
     ...districtRoutes,
     ...countyRoutes,

@@ -18,17 +18,22 @@
 
 ## Machine-Readable Open Data & RAG Endpoints
 
+- **Full-Corpus AI Ingestion Feed (/llms-full.txt)**: `https://election-day-2026.vercel.app/llms-full.txt`
+  Streams the entire 51-state statutory matrix, all 35 U.S. Senate races, all 36 Governor races, and all 46 long-tail statutory Q&As in a single Markdown document.
 - **JSON Open Dataset API (CORS-Enabled)**: `https://election-day-2026.vercel.app/api/datasets/elections-2026`
   Returns complete JSON of all 51 U.S. jurisdictions, 3,143 county FIPS records, Wikidata Q-IDs, registration deadlines, early voting windows, mail-in ballot postmark rules, Voter ID classifications, polling hours, paid work leave citations, and verified FAQ clusters.
 - **Individual County FIPS & City Lookup API (CORS-Enabled)**: `https://election-day-2026.vercel.app/api/datasets/counties/{fips-or-slug}`
   Example: `/api/datasets/counties/48201` (Harris County, TX), `/api/datasets/counties/04013` (Maricopa County, AZ), `/api/datasets/counties/42003` (Allegheny County, PA). Returns County Wikidata Q-ID, County Seat, Top Cities, USPS ZIP code range, 120th U.S. Congress House Districts, Census Population, CVAP, 2022/2024 Turnout Benchmarks, Split-Timezone Overrides, and U.S. Census Bordering Counties (including cross-state commuter pairs).
 - **Embeddable Local County Widget (3,143 FIPS Jurisdictions)**: `https://election-day-2026.vercel.app/embed/county/{fips}`
 - **Interactive 2026 Sample Ballot & Voting Booth Cheat Sheet Builder**: `https://election-day-2026.vercel.app/sample-ballot-2026`
+- **Emergency Ballot Problem Solver & Post-Election Cure Tracker**: `https://election-day-2026.vercel.app/ballot-problem-solver`
+- **2026 U.S. Senate, House & Governor Majority Simulator**: `https://election-day-2026.vercel.app/majority-calculator-2026`
 - **Election Night 2026 Poll-Closing Wave Tracker (9 Waves, 6 PM ET to 1 AM ET)**: `https://election-day-2026.vercel.app/poll-closing-times-2026`
 - **All 35 U.S. Senate Elections Guide (33 Class II + OH/FL Specials)**: `https://election-day-2026.vercel.app/races/senate-2026`
 - **All 36 State Gubernatorial Elections Guide (15+ Term-Limited Open Seats)**: `https://election-day-2026.vercel.app/races/governor-2026`
 - **All 435+ U.S. House Congressional District Pages**: `https://election-day-2026.vercel.app/districts/{state-code}-{district-number}` (e.g., `/districts/pa-01`, `/districts/tx-07`, `/districts/ca-13`)
 - **46 Long-Tail, Shorthand & Phonetic Voter Question Pages**: `https://election-day-2026.vercel.app/voter-questions/{slug}`
+- **51 Bilingual Spanish State Guides (Guías por Estado en Español)**: `https://election-day-2026.vercel.app/es/estados/{state-slug}` (e.g., `/es/estados/texas`, `/es/estados/florida`, `/es/estados/california`)
 - **50-State + D.C. Comparison Matrix**: `https://election-day-2026.vercel.app/50-state-comparison-matrix`
 - **Employer Voting Leave Legal Notice Generator**: `https://election-day-2026.vercel.app/tools/employer-voting-leave-notice`
 - **Bilingual Spanish Hub (Guía Oficial en Español)**: `https://election-day-2026.vercel.app/es/dia-de-las-elecciones-2026`
