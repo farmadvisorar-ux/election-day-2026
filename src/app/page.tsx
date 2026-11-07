@@ -458,6 +458,48 @@ export default function HomePage() {
           </Link>
 
           <Link
+            href="/voter-id-validator-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-blue-900 to-indigo-950 text-white border border-blue-400/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                50-State Document Checker
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                Will My ID Work to Vote? Validator
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Check whether your expired driver’s license, college student ID, out-of-state ID, or digital wallet is accepted at your state’s polling place.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Validate Your ID</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/widgets"
+            className="p-5 rounded-2xl bg-gradient-to-br from-emerald-900 to-slate-950 text-white border border-emerald-500/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                For Publishers &amp; Newsrooms
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                Free Embeddable Civic Widgets Studio
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Copy-paste live 2026 Countdown Clocks, State Polling Hours Badges, and Poll-Closing Wave Trackers for your campus or news site.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
+              <span>Grab Free Widgets</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
             href="/counties"
             className="p-5 rounded-2xl bg-gradient-to-br from-blue-700 to-indigo-950 text-white border border-blue-500/50 hover:shadow-lg transition-all flex flex-col justify-between"
           >

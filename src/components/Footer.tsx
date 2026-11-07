@@ -72,6 +72,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/voter-id-validator-2026" className="text-amber-300 hover:text-white font-bold transition-colors">
+                  Will My ID Work? 50-State Document &amp; Expiration Validator
+                </Link>
+              </li>
+              <li>
+                <Link href="/widgets" className="text-emerald-300 hover:text-white font-bold transition-colors">
+                  Free Embeddable 2026 Widgets (Countdown, Poll Hours &amp; Wave Tracker)
+                </Link>
+              </li>
+              <li>
                 <Link href="/ballot-problem-solver" className="text-red-300 hover:text-white font-bold transition-colors">
                   Emergency Ballot Problem Solver &amp; Cure Tracker
                 </Link>

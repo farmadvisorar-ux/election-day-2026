@@ -29,8 +29,25 @@ export const Header: React.FC = () => {
               2026 Propositions
             </Link>
             <span>•</span>
-            <Link href="/first-time-voter-guide-2026" className="hover:text-white font-semibold">
-              First-Time Voter &amp; Poll Worker Pay
+            <Link
+              href="/first-time-voter-guide-2026"
+              className="hover:text-white font-semibold"
+            >
+              First-Time Voter
+            </Link>
+            <span>•</span>
+            <Link
+              href="/voter-id-validator-2026"
+              className="text-amber-300 hover:text-white font-bold"
+            >
+              ID Validator
+            </Link>
+            <span>•</span>
+            <Link
+              href="/widgets"
+              className="text-emerald-300 hover:text-white font-bold"
+            >
+              Widgets
             </Link>
             <span>•</span>
             <Link href="/advertise" className="text-blue-300 hover:text-white font-bold">
