@@ -10,6 +10,7 @@ import {
 } from '../data/counties';
 import { SENATE_RACE_BY_STATE, GOVERNOR_RACE_BY_STATE } from '../data/races2026';
 import { STATE_PRIMARIES_2026 } from '../data/primaries';
+import { CandidateClaimBanner } from './CandidateClaimBanner';
 import {
   Search,
   MapPin,
@@ -355,6 +356,13 @@ export function SampleBallotBuilder() {
             </p>
           )}
         </div>
+
+        {/* Candidate & Campaign Claim Hook */}
+        <CandidateClaimBanner
+          jurisdictionType="district"
+          jurisdictionName={county?.congressionalDistricts.join('/') || `${state.name} U.S. House`}
+          compact={true}
+        />
 
         {/* CONTEST 2: U.S. HOUSE OF REPRESENTATIVES */}
         <div className="rounded-2xl border border-slate-200 p-5 bg-white shadow-xs">

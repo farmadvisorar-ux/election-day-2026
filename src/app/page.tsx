@@ -301,13 +301,18 @@ export default function HomePage() {
 
       {/* Presidential-Grade Civic Utilities & Open Data Command Bar */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-xl sm:text-2xl font-black text-slate-900">
             2026 Interactive Voter Tools, City Hubs &amp; Election Night Simulators
           </h2>
-          <Link href="/advertise" className="text-xs font-extrabold text-blue-600 hover:underline">
-            Sponsor a Civic Tool →
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/candidate-portal" className="text-xs font-black text-amber-600 hover:underline flex items-center gap-1">
+              <span>🏛️ Candidates: Claim 2026 Profile →</span>
+            </Link>
+            <Link href="/advertise" className="text-xs font-extrabold text-blue-600 hover:underline">
+              Sponsor a Civic Tool →
+            </Link>
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <Link
@@ -516,6 +521,27 @@ export default function HomePage() {
             </div>
             <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
               <span>Browse 3,143 Counties</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/candidate-portal"
+            className="p-5 rounded-2xl bg-gradient-to-br from-amber-950 via-slate-950 to-indigo-950 text-white border-2 border-amber-400/80 hover:shadow-xl transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-amber-300">
+                Direct Candidate Ad Network
+              </span>
+              <h3 className="text-lg font-black mt-1 text-white">
+                2026 Candidate Portal &amp; Campaign Advertising
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Running for U.S. Senate, House, Governor, or local office? Claim your verified candidate profile, platform priorities, and direct ActBlue / WinRed donation CTA on your district’s ballot.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Open Candidate Portal</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </Link>

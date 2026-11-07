@@ -6,6 +6,7 @@ import { AdPlacement } from '../../../components/AdPlacement';
 import { LeadCapture } from '../../../components/LeadCapture';
 import { AffiliatePartners } from '../../../components/AffiliatePartners';
 import { JsonLd } from '../../../components/JsonLd';
+import { CandidateClaimBanner } from '../../../components/CandidateClaimBanner';
 import { SENATE_RACES_2026 } from '../../../data/races2026';
 import { STATE_PRIMARIES_2026 } from '../../../data/primaries';
 import { SITE_URL } from '../../../lib/siteConfig';
@@ -144,6 +145,12 @@ export default function Senate2026Page() {
         </div>
 
         <AdPlacement format="leaderboard" slotId="senate-top-ad" />
+
+        <CandidateClaimBanner
+          jurisdictionType="senate"
+          jurisdictionName="35 U.S. Senate Contests"
+          voterCountEstimate="millions of voters across all 35 Senate battleground states"
+        />
 
         {/* Section 1: Battleground & Competitive Senate Races */}
         <section className="my-8">

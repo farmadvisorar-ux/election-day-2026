@@ -84,6 +84,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     {
+      url: `${baseUrl}/candidate-portal`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/llms-full.txt`,
       lastModified: now,
       changeFrequency: 'weekly',

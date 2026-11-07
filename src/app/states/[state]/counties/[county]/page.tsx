@@ -15,6 +15,7 @@ import { AdPlacement } from '../../../../../components/AdPlacement';
 import { AffiliatePartners } from '../../../../../components/AffiliatePartners';
 import { LeadCapture } from '../../../../../components/LeadCapture';
 import { JsonLd } from '../../../../../components/JsonLd';
+import { CandidateClaimBanner } from '../../../../../components/CandidateClaimBanner';
 import {
   MapPin,
   Clock,
@@ -315,6 +316,13 @@ export default async function CountyElectionPage({ params }: Props) {
         </div>
 
         <AdPlacement format="leaderboard" slotId={`county-${county.fips}-top-ad`} />
+
+        {/* 2026 Candidate & Campaign Sponsorship Claim Hook */}
+        <CandidateClaimBanner
+          jurisdictionType="county"
+          jurisdictionName={`${county.name}, ${state.postalCode}`}
+          voterCountEstimate={county.cvap ? `over ${county.cvap.toLocaleString()} voting-age citizens in ${county.name}` : undefined}
+        />
 
         {/* Position #0 Featured Snippet Table: County Election Reference */}
         <section className="my-8 bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">

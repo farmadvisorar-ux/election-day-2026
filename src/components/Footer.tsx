@@ -151,6 +151,11 @@ export const Footer: React.FC = () => {
                   Civic Sponsorships &amp; 2026 Media Kit
                 </Link>
               </li>
+              <li>
+                <Link href="/candidate-portal" className="text-amber-400 hover:text-white font-black transition-colors flex items-center gap-1">
+                  <span>🏛️ 2026 Candidate Portal &amp; Campaign Advertising</span>
+                </Link>
+              </li>
             </ul>
           </div>
 

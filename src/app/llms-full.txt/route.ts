@@ -27,6 +27,7 @@ export async function GET() {
     `- **Instant 5-Digit ZIP Code to District & County Election Resolver**: ${SITE_URL}/find-my-district`,
     `- **Free Embeddable Civic Widgets Studio (Countdown, State Badges & Wave Tracker)**: ${SITE_URL}/widgets`,
     `- **Direct Non-Partisan Civic Sponsorship & B2B Media Kit**: ${SITE_URL}/advertise`,
+    `- **Direct Candidate Ad Network & Verified Campaign Portal (FEC 11 CFR § 110.11)**: ${SITE_URL}/candidate-portal`,
     `- **Zero-Hallucination Statutory Civic AI Engine**: ${SITE_URL}/ask`,
     `- **Personal 2026 Voting Plan, Wallet ID & Shift Conflict Checker**: ${SITE_URL}/my-voting-plan`,
     `- **Employer Paid Voting Leave HR Legal Notice Generator**: ${SITE_URL}/tools/employer-voting-leave-notice`,

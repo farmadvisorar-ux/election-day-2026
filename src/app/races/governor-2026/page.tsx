@@ -6,6 +6,7 @@ import { AdPlacement } from '../../../components/AdPlacement';
 import { LeadCapture } from '../../../components/LeadCapture';
 import { AffiliatePartners } from '../../../components/AffiliatePartners';
 import { JsonLd } from '../../../components/JsonLd';
+import { CandidateClaimBanner } from '../../../components/CandidateClaimBanner';
 import { GOVERNOR_RACES_2026 } from '../../../data/races2026';
 import { STATE_PRIMARIES_2026 } from '../../../data/primaries';
 import { SITE_URL } from '../../../lib/siteConfig';
@@ -147,6 +148,12 @@ export default function Governor2026Page() {
         </div>
 
         <AdPlacement format="leaderboard" slotId="gov-top-ad" />
+
+        <CandidateClaimBanner
+          jurisdictionType="governor"
+          jurisdictionName="36 State Governorships"
+          voterCountEstimate="voters across 36 states with executive contests on November 3, 2026"
+        />
 
         {/* Section 1: Battleground Governor Races */}
         <section className="my-8">

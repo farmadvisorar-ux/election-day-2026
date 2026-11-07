@@ -15,6 +15,7 @@ import { AdPlacement } from '../../../components/AdPlacement';
 import { AffiliatePartners } from '../../../components/AffiliatePartners';
 import { LeadCapture } from '../../../components/LeadCapture';
 import { JsonLd } from '../../../components/JsonLd';
+import { CandidateClaimBanner } from '../../../components/CandidateClaimBanner';
 import {
   Vote,
   MapPin,
@@ -249,6 +250,13 @@ export default async function CongressionalDistrictPage({ params }: Props) {
         />
 
         <AdPlacement format="leaderboard" slotId={`district-${dist.slug}-top-ad`} />
+
+        {/* 2026 Candidate & Campaign Sponsorship Claim Hook */}
+        <CandidateClaimBanner
+          jurisdictionType="district"
+          jurisdictionName={dist.code}
+          voterCountEstimate={`over 750,000 residents across ${dist.counties.length} counties in ${dist.stateName}`}
+        />
 
         {/* Counties & Local Election Boards Inside This Congressional District */}
         <section className="my-8 bg-white rounded-2xl border-2 border-slate-200 p-6 shadow-xs">
