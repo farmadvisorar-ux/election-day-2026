@@ -192,6 +192,13 @@ export const Header: React.FC = () => {
             >
               <span>435 Districts</span>
             </Link>
+
+            <Link
+              href="/find-my-district"
+              className="hover:text-blue-600 transition-colors flex items-center gap-1 text-blue-700 font-extrabold"
+            >
+              <span>Find My District</span>
+            </Link>
           </nav>
 
           {/* Right Action CTA */}

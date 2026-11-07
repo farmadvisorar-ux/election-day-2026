@@ -24,6 +24,7 @@ export async function GET() {
     `- **2026 Statewide Ballot Measures & Propositions YES/NO Decoder**: ${SITE_URL}/ballot-measures-2026`,
     `- **First-Time Voter Polling Booth Walkthrough & 50-State Poll Worker Pay Calculator**: ${SITE_URL}/first-time-voter-guide-2026`,
     `- **50-State Interactive Voter ID & Expiration Document Validator**: ${SITE_URL}/voter-id-validator-2026`,
+    `- **Instant 5-Digit ZIP Code to District & County Election Resolver**: ${SITE_URL}/find-my-district`,
     `- **Free Embeddable Civic Widgets Studio (Countdown, State Badges & Wave Tracker)**: ${SITE_URL}/widgets`,
     `- **Direct Non-Partisan Civic Sponsorship & B2B Media Kit**: ${SITE_URL}/advertise`,
     `- **Zero-Hallucination Statutory Civic AI Engine**: ${SITE_URL}/ask`,

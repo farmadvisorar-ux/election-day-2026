@@ -4,9 +4,11 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { JsonLd } from '../components/JsonLd';
 import { StickyMobileAd } from '../components/StickyMobileAd';
+import { ServiceWorkerRegistration } from '../components/ServiceWorkerRegistration';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://election-day-2026.vercel.app'),
+  manifest: '/manifest.json',
   title: {
     default: 'Election Day 2026: Official Date, Deadlines, Countdown & Voter Guide',
     template: '%s | ElectionDay2026.org',
@@ -132,6 +134,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <StickyMobileAd />
+        <ServiceWorkerRegistration />
       </body>
     </html>
   );

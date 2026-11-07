@@ -521,6 +521,27 @@ export default function HomePage() {
           </Link>
 
           <Link
+            href="/find-my-district"
+            className="p-5 rounded-2xl bg-gradient-to-br from-blue-900 to-cyan-950 text-white border border-cyan-400/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-300">
+                Instant 5-Digit ZIP Code Resolver
+              </span>
+              <h3 className="text-lg font-black mt-1">
+                Find My Congressional District &amp; County
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Type any 5-digit ZIP code to instantly identify your exact U.S. House Congressional District(s), sitting Senators, Governor, and local County Board of Elections.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-cyan-300 flex items-center gap-1">
+              <span>Resolve My ZIP Code</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
             href="/districts"
             className="p-5 rounded-2xl bg-gradient-to-br from-indigo-800 to-slate-950 text-white border border-indigo-600/50 hover:shadow-lg transition-all flex flex-col justify-between"
           >

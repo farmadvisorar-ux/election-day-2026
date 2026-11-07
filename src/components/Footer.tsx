@@ -122,6 +122,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/find-my-district" className="text-amber-300 hover:text-white font-bold transition-colors">
+                  Find My Congressional District (5-Digit ZIP Code Resolver)
+                </Link>
+              </li>
+              <li>
                 <Link href="/primary-calendar-2026" className="text-amber-300 hover:text-white font-bold transition-colors">
                   2026 State Primary Election Calendar
                 </Link>
