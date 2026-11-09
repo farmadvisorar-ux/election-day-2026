@@ -127,6 +127,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/early-voting-calendar-2026" className="text-amber-300 hover:text-white font-bold transition-colors">
+                  2026 Early Voting Calendar &amp; Weekend &quot;Souls to the Polls&quot; Hours
+                </Link>
+              </li>
+              <li>
+                <Link href="/ballot-drop-boxes-2026" className="text-emerald-300 hover:text-white font-bold transition-colors">
+                  Ballot Drop Boxes &amp; Family Delivery Laws (Avoid Felony Traps)
+                </Link>
+              </li>
+              <li>
                 <Link href="/line-rights-2026" className="text-rose-400 hover:text-white font-black transition-colors">
                   In Line When Polls Close? 50-State Statutory Line Rights
                 </Link>

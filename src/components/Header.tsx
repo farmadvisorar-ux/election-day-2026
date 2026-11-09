@@ -44,6 +44,20 @@ export const Header: React.FC = () => {
             </Link>
             <span>•</span>
             <Link
+              href="/early-voting-calendar-2026"
+              className="text-amber-300 hover:text-white font-bold"
+            >
+              Early Voting
+            </Link>
+            <span>•</span>
+            <Link
+              href="/ballot-drop-boxes-2026"
+              className="text-emerald-300 hover:text-white font-semibold"
+            >
+              Drop Boxes
+            </Link>
+            <span>•</span>
+            <Link
               href="/line-rights-2026"
               className="text-rose-300 hover:text-white font-bold"
             >
@@ -217,6 +231,20 @@ export const Header: React.FC = () => {
               className="hover:text-blue-600 transition-colors flex items-center gap-1 text-blue-700 font-extrabold"
             >
               <span>Find My District</span>
+            </Link>
+
+            <Link
+              href="/early-voting-calendar-2026"
+              className="hover:text-amber-600 transition-colors flex items-center gap-1 text-amber-700 font-black"
+            >
+              <span>Early Voting</span>
+            </Link>
+
+            <Link
+              href="/ballot-drop-boxes-2026"
+              className="hover:text-emerald-600 transition-colors flex items-center gap-1 text-emerald-700 font-black"
+            >
+              <span>Drop Boxes</span>
             </Link>
 
             <Link

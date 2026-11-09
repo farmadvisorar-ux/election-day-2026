@@ -102,6 +102,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.97,
     },
     {
+      url: `${baseUrl}/early-voting-calendar-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/ballot-drop-boxes-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.97,
+    },
+    {
       url: `${baseUrl}/llms-full.txt`,
       lastModified: now,
       changeFrequency: 'weekly',

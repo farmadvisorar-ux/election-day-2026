@@ -30,6 +30,8 @@ export async function GET() {
     `- **Direct Candidate Ad Network & Verified Campaign Portal (FEC 11 CFR § 110.11)**: ${SITE_URL}/candidate-portal`,
     `- **In Line When Polls Close? 50-State Statutory Line Rights & Emergency Hotlines**: ${SITE_URL}/line-rights-2026`,
     `- **Military & Overseas Voters (UOCAVA & FWAB Emergency Backup Assistant)**: ${SITE_URL}/military-overseas-voting-2026`,
+    `- **2026 Early Voting Calendar & Weekend "Souls to the Polls" Directory**: ${SITE_URL}/early-voting-calendar-2026`,
+    `- **Ballot Drop Boxes & Family Delivery Laws (50-State Statutory Matrix)**: ${SITE_URL}/ballot-drop-boxes-2026`,
     `- **Zero-Hallucination Statutory Civic AI Engine**: ${SITE_URL}/ask`,
     `- **Personal 2026 Voting Plan, Wallet ID & Shift Conflict Checker**: ${SITE_URL}/my-voting-plan`,
     `- **Employer Paid Voting Leave HR Legal Notice Generator**: ${SITE_URL}/tools/employer-voting-leave-notice`,

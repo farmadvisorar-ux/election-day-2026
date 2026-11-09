@@ -589,6 +589,48 @@ export default function HomePage() {
           </Link>
 
           <Link
+            href="/early-voting-calendar-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-indigo-950 via-slate-950 to-blue-950 text-white border-2 border-amber-400/70 hover:shadow-xl transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-amber-300">
+                Weekend &amp; Advance Voting
+              </span>
+              <h3 className="text-lg font-black mt-1 text-white">
+                2026 Early Voting &amp; &quot;Souls to the Polls&quot; Calendar
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Early in-person start dates across 47 states, mandatory Saturday voting, Sunday faith voting hours, and county Vote Center guidelines.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>View Early Voting Schedule</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/ballot-drop-boxes-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-emerald-950 via-slate-950 to-teal-950 text-white border-2 border-emerald-400/70 hover:shadow-xl transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-emerald-300">
+                Drop Box Locator &amp; Delivery Laws
+              </span>
+              <h3 className="text-lg font-black mt-1 text-white">
+                Ballot Drop Boxes &amp; Family Delivery Guide
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Drop box availability, who can legally deliver your ballot (avoiding felony penalties in TX/FL/GA), witness/notary rules, and ADA curbside voting.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
+              <span>Inspect Drop Box Rules</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
             href="/line-rights-2026"
             className="p-5 rounded-2xl bg-gradient-to-br from-rose-950 via-slate-950 to-indigo-950 text-white border-2 border-rose-500/70 hover:shadow-xl transition-all flex flex-col justify-between"
           >

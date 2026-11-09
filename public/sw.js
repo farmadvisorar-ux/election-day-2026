@@ -1,5 +1,5 @@
 // Election Day 2026 — Zero-Signal Offline Polling Booth Service Worker
-const CACHE_NAME = 'election-day-2026-v3';
+const CACHE_NAME = 'election-day-2026-v4';
 
 const OFFLINE_PAGES = [
   '/',
@@ -8,6 +8,8 @@ const OFFLINE_PAGES = [
   '/find-my-district',
   '/line-rights-2026',
   '/military-overseas-voting-2026',
+  '/early-voting-calendar-2026',
+  '/ballot-drop-boxes-2026',
   '/ballot-problem-solver',
   '/50-state-comparison-matrix',
   '/poll-closing-times-2026',
