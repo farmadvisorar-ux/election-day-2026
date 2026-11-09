@@ -22,6 +22,9 @@ import {
   Building2,
   GraduationCap,
   Sparkles,
+  Award,
+  HeartHandshake,
+  Users,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -85,6 +88,49 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-blue-900 via-indigo-900 to-slate-900 text-white pt-10 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
+          {/* Cycle Transition & Candidate Directory Alert Banner */}
+          <div className="bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 p-0.5 rounded-2xl mb-8 shadow-xl">
+            <div className="bg-slate-950/95 backdrop-blur-md rounded-[14px] p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3 text-left">
+                <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black flex-shrink-0">
+                  <Award className="w-5 h-5 text-slate-950" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">New Platform Feature</span>
+                    <span className="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full font-bold border border-rose-500/30">Verified Campaign Network</span>
+                  </div>
+                  <h2 className="text-base sm:text-lg font-black text-white mt-0.5">
+                    Candidate Directory &amp; Verified Endorsement Listings
+                  </h2>
+                  <p className="text-xs text-slate-300 mt-0.5">
+                    Research candidates, explore union/PAC endorsements, view 2026 runoffs &amp; track the 2028 Presidential countdown.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 w-full md:w-auto flex-shrink-0">
+                <Link
+                  href="/candidates"
+                  className="flex-1 md:flex-initial text-center px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs rounded-xl transition-colors shadow"
+                >
+                  Candidate Directory →
+                </Link>
+                <Link
+                  href="/endorsements"
+                  className="flex-1 md:flex-initial text-center px-4 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-xl transition-colors shadow"
+                >
+                  Endorsements →
+                </Link>
+                <Link
+                  href="/election-day-2028"
+                  className="hidden sm:inline-flex text-center px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-xl border border-white/20 transition-colors"
+                >
+                  2028 Hub
+                </Link>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mb-8">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-3">
               <Sparkles className="w-3.5 h-3.5 text-amber-300" />
@@ -315,6 +361,109 @@ export default function HomePage() {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Link
+            href="/candidates"
+            className="p-5 rounded-2xl bg-gradient-to-br from-blue-900 to-slate-950 text-white border border-blue-400/60 hover:shadow-xl transition-all flex flex-col justify-between relative group"
+          >
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+                  Verified Candidate Directory
+                </span>
+                <span className="text-[10px] bg-amber-400/20 text-amber-300 px-2 py-0.5 rounded-full font-bold border border-amber-400/30">
+                  FEC Compliant
+                </span>
+              </div>
+              <h3 className="text-lg font-black mt-1 group-hover:text-amber-300 transition-colors">
+                Candidate Directory &amp; Policy Profiles
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Search verified candidates across U.S. Senate, House, Governor, December runoffs, and declared 2028 Presidential contenders.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-amber-300 flex items-center gap-1">
+              <span>Browse Candidates</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/endorsements"
+            className="p-5 rounded-2xl bg-gradient-to-br from-rose-950 to-slate-950 text-white border border-rose-500/60 hover:shadow-xl transition-all flex flex-col justify-between relative group"
+          >
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300">
+                  Endorsement Tracker
+                </span>
+                <span className="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full font-bold border border-rose-500/30">
+                  Unions &amp; PACs
+                </span>
+              </div>
+              <h3 className="text-lg font-black mt-1 group-hover:text-rose-300 transition-colors">
+                Official Endorsement Listings
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Live endorsements directory from AFL-CIO, UAW, Chamber of Commerce, Sierra Club, FOP, and major newspaper editorial boards.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-rose-300 flex items-center gap-1">
+              <span>Explore Endorsements</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/election-day-2028"
+            className="p-5 rounded-2xl bg-gradient-to-br from-indigo-950 via-blue-950 to-slate-950 text-white border border-indigo-400/60 hover:shadow-xl transition-all flex flex-col justify-between relative group"
+          >
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-blue-300">
+                  60th Presidential Election
+                </span>
+                <span className="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full font-bold border border-blue-400/30">
+                  Nov 7, 2028
+                </span>
+              </div>
+              <h3 className="text-lg font-black mt-1 group-hover:text-blue-300 transition-colors">
+                Election Day 2028 Presidential Hub
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                538 Electoral College votes (270 to win), 33 Class III Senate seats, 2028 Presidential primary schedule, and statutory timeline.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-blue-300 flex items-center gap-1">
+              <span>Enter 2028 Hub</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/runoffs-2026-2027"
+            className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-emerald-950 text-white border border-emerald-500/50 hover:shadow-xl transition-all flex flex-col justify-between relative group"
+          >
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                  Canvass &amp; Recounts
+                </span>
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-bold border border-emerald-500/30">
+                  Dec 2026 Runoffs
+                </span>
+              </div>
+              <h3 className="text-lg font-black mt-1 group-hover:text-emerald-300 transition-colors">
+                2026 Runoffs &amp; 2027 State Elections
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Georgia general runoff, Louisiana Dec 5 runoff, 120th Congress convening, and 2027 Virginia &amp; New Jersey legislative races.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
+              <span>View Runoff Schedule</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
           <Link
             href="/sample-ballot-2026"
             className="p-5 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-900 text-white border border-blue-400/50 hover:shadow-lg transition-all flex flex-col justify-between"
@@ -668,6 +817,48 @@ export default function HomePage() {
             </div>
             <span className="mt-4 text-xs font-bold text-blue-300 flex items-center gap-1">
               <span>Open Military &amp; Expat Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/student-voting-guide-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-purple-950 via-slate-950 to-indigo-950 text-white border-2 border-purple-400/70 hover:shadow-xl transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-purple-300">
+                26th Amendment Campus Guide
+              </span>
+              <h3 className="text-lg font-black mt-1 text-white">
+                College Student &amp; Campus Voting Guide
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Supreme Court dorm rights (Symm v. US), 50-state student ID acceptance rules, and tax dependency myth-busters.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-purple-300 flex items-center gap-1">
+              <span>Campus Voting Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/voting-rights-restoration-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-emerald-950 via-slate-950 to-slate-900 text-white border-2 border-emerald-400/70 hover:shadow-xl transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-emerald-300">
+                Civil Rights Re-Enfranchisement
+              </span>
+              <h3 className="text-lg font-black mt-1 text-white">
+                Can I Vote With a Felony? 50-State Restoration
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                Automatic release in 25+ states, probation &amp; parole rules, and the universal rule that misdemeanors never take away your vote.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-emerald-300 flex items-center gap-1">
+              <span>Check Restoration Rules</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </Link>

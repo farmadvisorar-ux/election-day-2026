@@ -14,9 +14,26 @@ export const Header: React.FC = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 mx-auto md:mx-0">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Independent Non-Partisan Civic Guide • Tuesday, November 3, 2026 Midterm Elections</span>
+            <span>Civic Operating System & Candidate Directory • 2026 Runoffs, 2027 Off-Year & 2028 Presidential Cycle</span>
           </div>
           <div className="hidden md:flex items-center gap-4 text-slate-300">
+            <Link href="/candidates" className="text-amber-300 hover:text-white font-extrabold flex items-center gap-1">
+              <Award className="w-3.5 h-3.5 text-amber-300" />
+              <span>Candidates</span>
+            </Link>
+            <span>•</span>
+            <Link href="/endorsements" className="text-rose-300 hover:text-white font-extrabold flex items-center gap-1">
+              <span>Endorsements</span>
+            </Link>
+            <span>•</span>
+            <Link href="/election-day-2028" className="text-blue-300 hover:text-white font-extrabold">
+              2028 Presidential
+            </Link>
+            <span>•</span>
+            <Link href="/runoffs-2026-2027" className="text-emerald-300 hover:text-white font-bold">
+              2026 Runoffs
+            </Link>
+            <span>•</span>
             <Link href="/es/dia-de-las-elecciones-2026" className="text-amber-300 hover:text-white font-bold">
               🇺🇸/🇪🇸 Español
             </Link>
@@ -34,6 +51,20 @@ export const Header: React.FC = () => {
               className="hover:text-white font-semibold"
             >
               First-Time Voter
+            </Link>
+            <span>•</span>
+            <Link
+              href="/student-voting-guide-2026"
+              className="text-purple-300 hover:text-white font-bold"
+            >
+              Student Voting
+            </Link>
+            <span>•</span>
+            <Link
+              href="/voting-rights-restoration-2026"
+              className="text-emerald-300 hover:text-white font-semibold"
+            >
+              Rights Restoration
             </Link>
             <span>•</span>
             <Link
@@ -117,7 +148,36 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Links */}
-          <nav className="hidden lg:flex items-center gap-5 text-sm font-bold text-slate-700">
+          <nav className="hidden lg:flex items-center gap-4 text-sm font-bold text-slate-700">
+            <Link
+              href="/candidates"
+              className="hover:text-blue-600 transition-colors flex items-center gap-1 text-blue-700 font-black bg-blue-50 px-2 py-1 rounded-lg border border-blue-200"
+            >
+              <Award className="w-4 h-4 text-amber-500" />
+              <span>Candidates</span>
+            </Link>
+
+            <Link
+              href="/endorsements"
+              className="hover:text-rose-600 transition-colors flex items-center gap-1 text-rose-700 font-black bg-rose-50 px-2 py-1 rounded-lg border border-rose-200"
+            >
+              <span>Endorsements</span>
+            </Link>
+
+            <Link
+              href="/election-day-2028"
+              className="hover:text-indigo-600 transition-colors flex items-center gap-1 text-indigo-700 font-black"
+            >
+              <Calendar className="w-4 h-4 text-indigo-500" />
+              <span>2028 Election</span>
+            </Link>
+
+            <Link
+              href="/runoffs-2026-2027"
+              className="hover:text-emerald-700 transition-colors flex items-center gap-1 text-emerald-800 font-bold"
+            >
+              <span>2026 Runoffs</span>
+            </Link>
             <Link
               href="/is-it-a-holiday"
               className="hover:text-blue-600 transition-colors flex items-center gap-1"
@@ -248,6 +308,13 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link
+              href="/student-voting-guide-2026"
+              className="hover:text-purple-600 transition-colors flex items-center gap-1 text-purple-700 font-black"
+            >
+              <span>Students</span>
+            </Link>
+
+            <Link
               href="/line-rights-2026"
               className="hover:text-rose-600 transition-colors flex items-center gap-1 text-rose-700 font-black"
             >
@@ -289,6 +356,37 @@ export const Header: React.FC = () => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3">
+          <Link
+            href="/candidates"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2 text-base font-black text-blue-900 bg-blue-50 border border-blue-200 rounded-lg flex items-center justify-between"
+          >
+            <span>Candidate Directory</span>
+            <span className="text-xs bg-blue-600 text-white px-2 py-0.5 rounded font-bold">Verified</span>
+          </Link>
+          <Link
+            href="/endorsements"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2 text-base font-black text-rose-900 bg-rose-50 border border-rose-200 rounded-lg flex items-center justify-between"
+          >
+            <span>Endorsement Listings</span>
+            <span className="text-xs bg-rose-600 text-white px-2 py-0.5 rounded font-bold">PACs & Unions</span>
+          </Link>
+          <Link
+            href="/election-day-2028"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2 text-base font-black text-indigo-900 bg-indigo-50 border border-indigo-200 rounded-lg flex items-center justify-between"
+          >
+            <span>Election Day 2028 Hub</span>
+            <span className="text-xs bg-indigo-600 text-white px-2 py-0.5 rounded font-bold">Presidency</span>
+          </Link>
+          <Link
+            href="/runoffs-2026-2027"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2 text-base font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
+          >
+            2026 Runoffs & 2027 State Elections
+          </Link>
           <Link
             href="/candidate-portal"
             onClick={() => setMobileMenuOpen(false)}

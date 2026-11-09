@@ -4,6 +4,7 @@ import { COUNTIES_BY_STATE } from '../data/counties';
 import { ALL_DISTRICTS_LIST } from '../data/districts';
 import { COMPREHENSIVE_QUERY_MATRIX } from '../data/queries';
 import { CITIES_2026_LIST } from '../data/cities2026';
+import { CANDIDATE_DIRECTORY } from '../data/candidateDirectory';
 import { SITE_URL } from '../lib/siteConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,6 +17,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/election-day-2028`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/candidates`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.99,
+    },
+    {
+      url: `${baseUrl}/endorsements`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.99,
+    },
+    {
+      url: `${baseUrl}/runoffs-2026-2027`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
     },
     {
       url: `${baseUrl}/sample-ballot-2026`,
@@ -109,6 +134,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/ballot-drop-boxes-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.97,
+    },
+    {
+      url: `${baseUrl}/student-voting-guide-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/voting-rights-restoration-2026`,
       lastModified: now,
       changeFrequency: 'daily',
       priority: 0.97,
@@ -289,8 +326,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // Candidate Individual Profile Pages
+  const candidateRoutes: MetadataRoute.Sitemap = CANDIDATE_DIRECTORY.map((c) => ({
+    url: `${baseUrl}/candidate/${c.id}`,
+    lastModified: now,
+    changeFrequency: 'daily',
+    priority: 0.95,
+  }));
+
   return [
     ...staticRoutes,
+    ...candidateRoutes,
     ...questionRoutes,
     ...stateHubRoutes,
     ...spanishStateRoutes,

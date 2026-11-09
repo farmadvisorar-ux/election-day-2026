@@ -28,9 +28,29 @@ export const Footer: React.FC = () => {
           {/* Core Hub Guides */}
           <div>
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-3">
-              Essential 2026 Guides
+              Candidate & Civic Hubs
             </h4>
             <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/candidates" className="text-amber-300 hover:text-white font-black transition-colors flex items-center gap-1">
+                  <span>🏛️ Official Candidate Directory (Senate, House & 2028)</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/endorsements" className="text-rose-400 hover:text-white font-black transition-colors flex items-center gap-1">
+                  <span>🤝 Verified Endorsement Listings (Unions & PACs)</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/election-day-2028" className="text-blue-300 hover:text-white font-black transition-colors flex items-center gap-1">
+                  <span>⭐ Election Day 2028: Tuesday, Nov 7, 2028 Hub</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/runoffs-2026-2027" className="text-emerald-400 hover:text-white font-bold transition-colors flex items-center gap-1">
+                  <span>🗳️ 2026 Runoffs, Recounts & 2027 Off-Year Hub</span>
+                </Link>
+              </li>
               <li>
                 <Link href="/is-it-a-holiday" className="hover:text-white transition-colors">
                   Is Election Day a Federal Holiday?
@@ -119,6 +139,16 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/districts" className="text-indigo-400 hover:text-white font-bold transition-colors">
                   All 435 U.S. House Districts Directory
+                </Link>
+              </li>
+              <li>
+                <Link href="/student-voting-guide-2026" className="text-purple-300 hover:text-white font-bold transition-colors">
+                  College Student &amp; Campus Voting Guide (Dorm Rules &amp; Student IDs)
+                </Link>
+              </li>
+              <li>
+                <Link href="/voting-rights-restoration-2026" className="text-emerald-400 hover:text-white font-bold transition-colors">
+                  Can I Vote with a Felony? 50-State Rights Restoration Matrix
                 </Link>
               </li>
               <li>
