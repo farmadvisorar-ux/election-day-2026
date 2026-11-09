@@ -127,6 +127,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/line-rights-2026" className="text-rose-400 hover:text-white font-black transition-colors">
+                  In Line When Polls Close? 50-State Statutory Line Rights
+                </Link>
+              </li>
+              <li>
+                <Link href="/military-overseas-voting-2026" className="text-blue-300 hover:text-white font-bold transition-colors">
+                  Military &amp; Overseas Voters (UOCAVA &amp; FWAB Backup)
+                </Link>
+              </li>
+              <li>
                 <Link href="/primary-calendar-2026" className="text-amber-300 hover:text-white font-bold transition-colors">
                   2026 State Primary Election Calendar
                 </Link>

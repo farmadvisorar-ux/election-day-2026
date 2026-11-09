@@ -90,6 +90,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/line-rights-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/military-overseas-voting-2026`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.97,
+    },
+    {
       url: `${baseUrl}/llms-full.txt`,
       lastModified: now,
       changeFrequency: 'weekly',

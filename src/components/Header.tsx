@@ -44,6 +44,20 @@ export const Header: React.FC = () => {
             </Link>
             <span>•</span>
             <Link
+              href="/line-rights-2026"
+              className="text-rose-300 hover:text-white font-bold"
+            >
+              Line Rights
+            </Link>
+            <span>•</span>
+            <Link
+              href="/military-overseas-voting-2026"
+              className="hover:text-white font-semibold"
+            >
+              Military (UOCAVA)
+            </Link>
+            <span>•</span>
+            <Link
               href="/widgets"
               className="text-emerald-300 hover:text-white font-bold"
             >
@@ -203,6 +217,13 @@ export const Header: React.FC = () => {
               className="hover:text-blue-600 transition-colors flex items-center gap-1 text-blue-700 font-extrabold"
             >
               <span>Find My District</span>
+            </Link>
+
+            <Link
+              href="/line-rights-2026"
+              className="hover:text-rose-600 transition-colors flex items-center gap-1 text-rose-700 font-black"
+            >
+              <span>Line Rights</span>
             </Link>
           </nav>
 

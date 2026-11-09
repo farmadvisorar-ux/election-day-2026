@@ -589,6 +589,48 @@ export default function HomePage() {
           </Link>
 
           <Link
+            href="/line-rights-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-rose-950 via-slate-950 to-indigo-950 text-white border-2 border-rose-500/70 hover:shadow-xl transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-rose-300">
+                Emergency Polling Place Protections
+              </span>
+              <h3 className="text-lg font-black mt-1 text-white">
+                In Line When Polls Close? 50-State Statutory Rights
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                State laws mandating your right to vote if you are in line before closing time, end-of-line marking procedures, and 1-click legal hotlines (866-OUR-VOTE).
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-rose-300 flex items-center gap-1">
+              <span>Know Your Line Rights</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
+            href="/military-overseas-voting-2026"
+            className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-blue-950 text-white border border-blue-400/50 hover:shadow-lg transition-all flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-300">
+                UOCAVA &amp; FWAB Emergency Guide
+              </span>
+              <h3 className="text-lg font-black mt-1 text-white">
+                Military &amp; Overseas Absentee Voting Guide
+              </h3>
+              <p className="text-xs text-slate-200 mt-1.5 leading-relaxed">
+                45-day federal ballot dispatch rules (Sept 19, 2026), FPCA registration deadlines, electronic return permissions, and backup write-in ballots.
+              </p>
+            </div>
+            <span className="mt-4 text-xs font-bold text-blue-300 flex items-center gap-1">
+              <span>Open Military &amp; Expat Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+
+          <Link
             href="/primary-calendar-2026"
             className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-indigo-950 text-white border border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between"
           >
