@@ -127,6 +127,12 @@ export default function HomePage() {
                 >
                   2028 Hub
                 </Link>
+                <Link
+                  href="/electoral-college-2028"
+                  className="hidden md:inline-flex text-center px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs rounded-xl transition-colors shadow"
+                >
+                  2028 Map (270) →
+                </Link>
               </div>
             </div>
           </div>

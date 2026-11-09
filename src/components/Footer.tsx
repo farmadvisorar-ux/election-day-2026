@@ -47,6 +47,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/electoral-college-2028" className="text-amber-300 hover:text-white font-black transition-colors flex items-center gap-1">
+                  <span>🗺️ 2028 Electoral College Map Simulator (270 to Win)</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/runoffs-2026-2027" className="text-emerald-400 hover:text-white font-bold transition-colors flex items-center gap-1">
                   <span>🗳️ 2026 Runoffs, Recounts & 2027 Off-Year Hub</span>
                 </Link>

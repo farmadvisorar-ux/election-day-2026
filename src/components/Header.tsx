@@ -169,7 +169,15 @@ export const Header: React.FC = () => {
               className="hover:text-indigo-600 transition-colors flex items-center gap-1 text-indigo-700 font-black"
             >
               <Calendar className="w-4 h-4 text-indigo-500" />
-              <span>2028 Election</span>
+              <span>2028 Hub</span>
+            </Link>
+
+            <Link
+              href="/electoral-college-2028"
+              className="hover:text-amber-600 transition-colors flex items-center gap-1 text-amber-700 font-extrabold bg-amber-50 px-2 py-1 rounded-lg border border-amber-200"
+            >
+              <Vote className="w-4 h-4 text-amber-600" />
+              <span>2028 Map</span>
             </Link>
 
             <Link

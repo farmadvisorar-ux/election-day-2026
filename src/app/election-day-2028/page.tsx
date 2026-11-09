@@ -108,6 +108,14 @@ export default function ElectionDay2028Page() {
             {/* Quick Action Navigation Bar */}
             <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
               <Link
+                href="/electoral-college-2028"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-black shadow-lg transition-transform hover:-translate-y-0.5"
+              >
+                <Vote className="w-4 h-4 text-amber-300" />
+                2028 Electoral College Map Simulator →
+              </Link>
+
+              <Link
                 href="/candidates?cycle=2028+Presidential+Cycle"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-bold shadow-md transition-colors"
               >
@@ -148,11 +156,16 @@ export default function ElectionDay2028Page() {
         {/* 2028 Key Numbers Matrix */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 -mt-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-200 text-center">
-              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Electoral College</span>
+            <Link
+              href="/electoral-college-2028"
+              className="bg-white rounded-2xl p-5 shadow-lg border border-slate-200 text-center hover:border-blue-400 hover:shadow-xl transition-all group block"
+            >
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+                Electoral College Simulator →
+              </span>
               <p className="text-3xl font-black text-blue-700 mt-1">538</p>
-              <span className="text-[11px] text-slate-500 font-medium">270 to Win Majority</span>
-            </div>
+              <span className="text-[11px] text-slate-500 font-medium">270 to Win • Click to Simulate</span>
+            </Link>
 
             <div className="bg-white rounded-2xl p-5 shadow-lg border border-slate-200 text-center">
               <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">U.S. Senate Seats</span>

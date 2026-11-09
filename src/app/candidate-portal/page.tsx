@@ -120,9 +120,39 @@ export default function CandidatePortalPage() {
     donationUrl,
   };
 
-  const handleReserve = (e: React.FormEvent) => {
+  const [isProcessingCheckout, setIsProcessingCheckout] = useState(false);
+
+  const handleReserve = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!contactEmail.includes('@')) return;
+
+    if (paymentPreference === 'card') {
+      setIsProcessingCheckout(true);
+      try {
+        const res = await fetch('/api/checkout/candidate-tier', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            packageId: selectedPackage,
+            candidateName,
+            campaignEmail: contactEmail,
+            officeTitle: officeSought,
+            state: selectedState,
+            committeeFecId: fecId,
+          }),
+        });
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+          return;
+        }
+      } catch (err) {
+        console.error('Checkout error:', err);
+      } finally {
+        setIsProcessingCheckout(false);
+      }
+    }
+
     startTransition(() => {
       setSubmitted(true);
     });
@@ -572,10 +602,17 @@ export default function CandidatePortalPage() {
                   ) : (
                     <button
                       type="submit"
-                      className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-black text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                      disabled={isProcessingCheckout}
+                      className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 disabled:opacity-75 text-white font-black text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                     >
                       <Award className="w-4 h-4 text-amber-300" />
-                      <span>Submit &amp; Reserve Candidate Listing →</span>
+                      <span>
+                        {isProcessingCheckout
+                          ? 'Initializing Secure Stripe Checkout...'
+                          : paymentPreference === 'card'
+                          ? 'Proceed to Secure Stripe Checkout →'
+                          : 'Submit & Reserve Candidate Listing →'}
+                      </span>
                     </button>
                   )}
                 </form>
